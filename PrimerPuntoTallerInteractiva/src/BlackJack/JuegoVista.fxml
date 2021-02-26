@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BlackJack.JuegoVistaController">
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="622.0" BorderPane.alignment="CENTER">
+         <children>
+            <MenuBar fx:id="menuBar" layoutY="-1.0" prefHeight="28.0" prefWidth="600.0">
+              <menus>
+                <Menu mnemonicParsing="false" text="Archivo">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#salirDelJuego" text="Salir" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Integrantes">
+                  <items>
+                    <MenuItem fx:id="mostrarIntegrantes" mnemonicParsing="false" onAction="#mostrarIntegrantes" text="Quienes somos" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <Label layoutX="286.0" layoutY="192.0" prefHeight="17.0" prefWidth="29.0" text="Hola" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
