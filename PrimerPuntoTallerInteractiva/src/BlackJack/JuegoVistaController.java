@@ -43,7 +43,7 @@ public class JuegoVistaController implements Initializable {
     private Button botonSeguro;
     @FXML
     private Button botonOtroJuego;
-    
+
     //FICHAS
     @FXML
     private Button botonFicha1;
@@ -57,9 +57,9 @@ public class JuegoVistaController implements Initializable {
     private Button botonFicha50;
     @FXML
     private Button botonFicha100;
-    
-    
-    
+
+    private Ficha ficha = new Ficha();
+
     /**
      * Initializes the controller class.
      */
@@ -76,12 +76,11 @@ public class JuegoVistaController implements Initializable {
     @FXML
     private void mostrarIntegrantes(ActionEvent event) {
         JOptionPane ventana = new JOptionPane();
-        ventana.showMessageDialog(null,"Juan Manuel Hoyos Contreras" + "\n"
+        ventana.showMessageDialog(null, "Juan Manuel Hoyos Contreras" + "\n"
                 + "Sebastian Cifuentes Florez" + "\n"
                 + "Emanuel Benjumea Bejarano", "Quienes somos", JOptionPane.INFORMATION_MESSAGE);
 
     }
-    
 
     @FXML
     private void Repartir(ActionEvent event) {
@@ -100,8 +99,38 @@ public class JuegoVistaController implements Initializable {
     }
 
     @FXML
-    private void imprimir(ActionEvent event) {
-        System.out.println("Hola perras");
+    private void obtenerValor1(ActionEvent event) {
+        campoApuesta.setText(ficha.getFicha1() + "");
     }
 
+    @FXML
+    private void obtenerValor5(ActionEvent event) {
+        campoApuesta.setText(ficha.getFicha5() + "");
+    }
+
+    @FXML
+    private void obtenerValor10(ActionEvent event) {
+        campoApuesta.setText(ficha.getFicha10() + "");
+
+    }
+
+    @FXML
+    private void obtenerValor25(ActionEvent event) {
+        campoApuesta.setText(ficha.getFicha25() + "");
+    }
+
+    @FXML
+    private void obtenerValor50(ActionEvent event) {
+        campoApuesta.setText(ficha.getFicha50() + "");
+    }
+
+    @FXML
+    private void obtenerValor100(ActionEvent event) {
+        campoApuesta.setText(ficha.getFicha100() + "");
+    }
+
+    @FXML
+    private void mostrarEfectivo() {
+        campoEfectivo.setText(ficha.getEfectivo() + "");
+    }
 }
