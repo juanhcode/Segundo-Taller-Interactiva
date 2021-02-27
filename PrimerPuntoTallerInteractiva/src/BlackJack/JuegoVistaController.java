@@ -43,7 +43,13 @@ public class JuegoVistaController implements Initializable {
     private Button botonSeguro;
     @FXML
     private Button botonOtroJuego;
-
+    
+    //FICHAS
+    @FXML
+    private Button botonFicha1;
+    
+    
+    
     /**
      * Initializes the controller class.
      */
@@ -81,6 +87,11 @@ public class JuegoVistaController implements Initializable {
 
     @FXML
     private void otroJuego(ActionEvent event) {
+    }
+
+    @FXML
+    private void imprimir(ActionEvent event) {
+        System.out.println("Hola perras");
     }
 
 }
