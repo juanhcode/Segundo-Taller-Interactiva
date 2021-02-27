@@ -1,17 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BlackJack.JuegoVistaController">
    <center>
-      <AnchorPane prefHeight="200.0" prefWidth="622.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="200.0" prefWidth="622.0" style="-fx-background-color: GREEN;" BorderPane.alignment="CENTER">
          <children>
-            <MenuBar fx:id="menuBar" layoutY="-1.0" prefHeight="28.0" prefWidth="600.0">
+            <MenuBar fx:id="menuBar" layoutY="-1.0" prefHeight="28.0" prefWidth="619.0">
               <menus>
                 <Menu mnemonicParsing="false" text="Archivo">
                   <items>
@@ -25,7 +30,48 @@
                 </Menu>
               </menus>
             </MenuBar>
-            <Label layoutX="286.0" layoutY="192.0" prefHeight="17.0" prefWidth="29.0" text="Hola" />
+            <Label layoutX="25.0" layoutY="81.0" text="Efectivo" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold Italic" size="15.0" />
+               </font></Label>
+            <TextField fx:id="campoEfectivo" layoutX="29.0" layoutY="101.0" prefHeight="25.0" prefWidth="50.0" />
+            <Label layoutX="29.0" layoutY="149.0" text="Apuesta" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold Italic" size="15.0" />
+               </font></Label>
+            <TextField fx:id="campoApuesta" editable="false" layoutX="29.0" layoutY="175.0" prefHeight="25.0" prefWidth="50.0" />
+            <Label layoutX="190.0" layoutY="60.0" text="Jugador" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold Italic" size="16.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="172.0" fitWidth="142.0" layoutX="159.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagenes%20Cartas/0.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="410.0" layoutY="58.0" text="Cupier" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold Italic" size="17.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="172.0" fitWidth="142.0" layoutX="369.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagenes%20Cartas/0.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="campoPuntajeJugador" editable="false" layoutX="211.0" layoutY="272.0" prefHeight="25.0" prefWidth="22.0" />
+            <TextField fx:id="campoPuntajeCupier" editable="false" layoutX="422.0" layoutY="272.0" prefHeight="25.0" prefWidth="22.0" />
+            <Label layoutX="247.0" layoutY="304.0" text="***Haga su apuesta***" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold Italic" size="17.0" />
+               </font>
+            </Label>
+            <Button fx:id="botonRepartir" layoutX="159.0" layoutY="339.0" mnemonicParsing="false" onAction="#Repartir" text="Repartir" />
+            <Button fx:id="botonOtraCarta" layoutX="233.0" layoutY="339.0" mnemonicParsing="false" onAction="#otraCarta" text="Otra carta" />
+            <Button fx:id="botonSeguro" layoutX="317.0" layoutY="339.0" mnemonicParsing="false" onAction="#seguro" text="Seguro" />
+            <Button fx:id="botonOtroJuego" layoutX="389.0" layoutY="339.0" mnemonicParsing="false" onAction="#otroJuego" text="Otro juego" />
+            <Button layoutX="14.0" layoutY="272.0" mnemonicParsing="false" text="Button" />
          </children>
       </AnchorPane>
    </center>

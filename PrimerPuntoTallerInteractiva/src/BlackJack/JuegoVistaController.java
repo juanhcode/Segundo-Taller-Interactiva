@@ -10,8 +10,10 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.TextField;
 import javax.swing.JOptionPane;
 
 /**
@@ -23,6 +25,24 @@ public class JuegoVistaController implements Initializable {
 
     @FXML
     private MenuBar menuBar;
+    @FXML
+    private MenuItem mostrarIntegrantes;
+    @FXML
+    private TextField campoEfectivo;
+    @FXML
+    private TextField campoApuesta;
+    @FXML
+    private TextField campoPuntajeJugador;
+    @FXML
+    private TextField campoPuntajeCupier;
+    @FXML
+    private Button botonRepartir;
+    @FXML
+    private Button botonOtraCarta;
+    @FXML
+    private Button botonSeguro;
+    @FXML
+    private Button botonOtroJuego;
 
     /**
      * Initializes the controller class.
@@ -44,6 +64,23 @@ public class JuegoVistaController implements Initializable {
                 + "Sebastian Cifuentes Florez" + "\n"
                 + "Emanuel Benjumea Bejarano", "Quienes somos", JOptionPane.INFORMATION_MESSAGE);
 
+    }
+    
+
+    @FXML
+    private void Repartir(ActionEvent event) {
+    }
+
+    @FXML
+    private void otraCarta(ActionEvent event) {
+    }
+
+    @FXML
+    private void seguro(ActionEvent event) {
+    }
+
+    @FXML
+    private void otroJuego(ActionEvent event) {
     }
 
 }
