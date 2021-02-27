@@ -47,6 +47,16 @@ public class JuegoVistaController implements Initializable {
     //FICHAS
     @FXML
     private Button botonFicha1;
+    @FXML
+    private Button botonFicha5;
+    @FXML
+    private Button botonFicha10;
+    @FXML
+    private Button botonFicha25;
+    @FXML
+    private Button botonFicha50;
+    @FXML
+    private Button botonFicha100;
     
     
     

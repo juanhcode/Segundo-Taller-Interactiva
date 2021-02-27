@@ -16,7 +16,7 @@
    <center>
       <AnchorPane prefHeight="515.0" prefWidth="835.0" style="-fx-background-color: GREEN;" BorderPane.alignment="CENTER">
          <children>
-            <MenuBar fx:id="menuBar" layoutY="-1.0" prefHeight="28.0" prefWidth="799.0">
+            <MenuBar fx:id="menuBar" layoutY="-1.0" prefHeight="28.0" prefWidth="821.0">
               <menus>
                 <Menu mnemonicParsing="false" text="Archivo">
                   <items>
@@ -71,7 +71,12 @@
             <Button fx:id="botonOtraCarta" layoutX="308.0" layoutY="445.0" mnemonicParsing="false" onAction="#otraCarta" prefHeight="36.0" prefWidth="105.0" text="Otra carta" />
             <Button fx:id="botonSeguro" layoutX="460.0" layoutY="445.0" mnemonicParsing="false" onAction="#seguro" prefHeight="36.0" prefWidth="105.0" text="Seguro" />
             <Button fx:id="botonOtroJuego" layoutX="619.0" layoutY="445.0" mnemonicParsing="false" onAction="#otroJuego" prefHeight="36.0" prefWidth="105.0" text="Otro juego" />
-            <Button fx:id="botonFicha1" focusTraversable="false" layoutX="41.0" layoutY="305.0" mnemonicParsing="false" onAction="#imprimir" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: green;" styleClass="botonFicha1" stylesheets="@estiloFichas.css" />
+            <Button fx:id="botonFicha1" focusTraversable="false" layoutX="41.0" layoutY="305.0" mnemonicParsing="false" onAction="#imprimir" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: green;" styleClass="botonFicha1" stylesheets="@estiloFichas.css" />
+            <Button fx:id="botonFicha5" focusTraversable="false" layoutX="94.0" layoutY="305.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: green;" styleClass="botonFicha5" stylesheets="@estiloFichas.css" />
+            <Button fx:id="botonFicha10" focusTraversable="false" layoutX="149.0" layoutY="305.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: green;" styleClass="botonFicha10" stylesheets="@estiloFichas.css" />
+            <Button fx:id="botonFicha25" focusTraversable="false" layoutX="41.0" layoutY="359.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: green;" styleClass="botonFicha25" stylesheets="@estiloFichas.css" />
+            <Button fx:id="botonFicha50" focusTraversable="false" layoutX="94.0" layoutY="359.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: green;" styleClass="botonFicha50" stylesheets="@estiloFichas.css" />
+            <Button fx:id="botonFicha100" focusTraversable="false" layoutX="149.0" layoutY="359.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: green;" styleClass="botonFicha100" stylesheets="@estiloFichas.css" />
          </children>
       </AnchorPane>
    </center>

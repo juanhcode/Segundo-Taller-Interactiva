@@ -7,7 +7,15 @@ and open the template in the editor.
     Created on : 26-feb-2021, 22:53:11
     Author     : Usuario
 */
-.botonFicha1 {-fx-background-image:url("/fichas/hola_1.png")}
+.botonFicha1 {-fx-background-image:url("/fichas/Ficha1.png")}
+.botonFicha10 {-fx-background-image:url("/fichas/Ficha10.png")}
+.botonFicha5 {-fx-background-image:url("/fichas/Ficha5.png")}
+.botonFicha25 {-fx-background-image:url("/fichas/Ficha25.png")}
+.botonFicha50 {-fx-background-image:url("/fichas/Ficha50.png")}
+.botonFicha100 {-fx-background-image:url("/fichas/Ficha100.png")}
+
+
+
 
 
 
