@@ -6,17 +6,13 @@
 package galeria;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.MenuItem;
+import javafx.scene.control.Label;
 import javafx.scene.image.*;
-import javafx.scene.input.MouseEvent;
-import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
 
 /**
  * FXML Controller class
@@ -25,80 +21,46 @@ import javax.swing.JOptionPane;
  */
 public class Galeria_imagenesController implements Initializable {
 
+    private int contador = 0;
+    private Label labelimagen;
+    private Image imagenes[] = new Image[6];
     @FXML
-    private Button bottonUltimaIgen;
+    private ImageView campoImagen;
     @FXML
-    private Button btAnteriorImg;
+    private Button botonAnterior;
     @FXML
-    private Button btsgteImagen;
+    private Button botonSiguiente;
     @FXML
-    private Button botonPrimeraimagen;
-
-    @FXML
-    private ImageView imagen;
+    private Label campoLabel;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }
-
-    @FXML
-    private void clickUltimaimagen(ActionEvent event) {
-        Image image = new Image("/imagenes/a8.jpg");
-        imagen.setImage(image);
-
-    }
-
-    @FXML
-    private void clickAnteriorimagen(ActionEvent event) {
-    }
-
-    @FXML
-    private void clicksiguenteimagen(ActionEvent event) {
-
-        
-            
-        Image imagen1 = new Image("/imagenes/a1.jpg");
-        Image imagen2 = new Image("/imagenes/a2.jpg");
-        Image imagen3 = new Image("/imagenes/a3.jpg");
-        Image imagen4 = new Image("/imagenes/a4.jpg");
-        Image imagen5 = new Image("/imagenes/a5.jpg");
-        Image imagen6 = new Image("/imagenes/a6.jpg");
-        Image imagen7 = new Image("/imagenes/a7.jpg");
-        Image imagen8 = new Image("/imagenes/a8.jpg");
-
-        ArrayList<Image> listaImagenes = new ArrayList<Image>();
-    
-        listaImagenes.add(imagen1);
-        listaImagenes.add(imagen2);
-        listaImagenes.add(imagen3);
-        listaImagenes.add(imagen4);
-        listaImagenes.add(imagen5);
-        listaImagenes.add(imagen6);
-        listaImagenes.add(imagen7);
-        listaImagenes.add(imagen8);
-        
-        
-        for (Image listaImagene : listaImagenes) {
-            imagen.setImage(listaImagene);
-            
+        for (int i = 0; i < 6; i++) {
+            imagenes[i] = new Image("/imagenes/a" + i + ".jpg");
         }
-        
-        
+        campoImagen.setImage(imagenes[0]);
     }
 
     @FXML
-    private void clickPrimeraimagen(ActionEvent event) {
-        Image image = new Image("/imagenes/a1.jpg");
+    private void Anterior(ActionEvent event) {
 
-        imagen.setImage(image);
+        if (contador == 6) {
+            contador = 0;
+        } else {
+            contador--;
+            campoImagen.setImage(imagenes[contador]);
+        }
+
     }
 
     @FXML
-    private void mostrarIntegrantes(ActionEvent event) {
-        JOptionPane.showMessageDialog(null, "Emanuel Benjumea Bejarano" + "\n"
-                + "Sebastian Cifuentes Florez" + "\n"
-                + "Juan Manuel Hoyos Contreras");
+    private void siguiente(ActionEvent event) {
+        if (contador == 6) {
+            campoImagen.setImage(imagenes[6]);
+        } else {
+            contador++;
+            campoImagen.setImage(imagenes[contador]);
+        }
 
     }
 
