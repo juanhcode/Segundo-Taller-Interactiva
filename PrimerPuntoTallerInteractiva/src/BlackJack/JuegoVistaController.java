@@ -82,7 +82,7 @@ public class JuegoVistaController implements Initializable {
                 + "Emanuel Benjumea Bejarano", "Quienes somos", JOptionPane.INFORMATION_MESSAGE);
 
     }
-    
+
     @FXML
     private void Repartir() {
     }
@@ -103,7 +103,9 @@ public class JuegoVistaController implements Initializable {
     private void obtenerValor1() {
         int texto = Integer.parseInt(campoApuesta.getText());
         int suma = ficha.getFicha1() + texto;
-        campoApuesta.setText(suma +"");
+        campoApuesta.setText(suma + "");
+
+        //PRUEBA
         int quitarDinero = ficha.getEfectivo() - suma;
         campoEfectivo.setText(quitarDinero + "");
     }
@@ -112,37 +114,36 @@ public class JuegoVistaController implements Initializable {
     private void obtenerValor5() {
         int texto = Integer.parseInt(campoApuesta.getText());
         int suma = ficha.getFicha5() + texto;
-        campoApuesta.setText(suma +"");
+        campoApuesta.setText(suma + "");
     }
 
     @FXML
     private void obtenerValor10() {
         int texto = Integer.parseInt(campoApuesta.getText());
         int suma = ficha.getFicha10() + texto;
-        campoApuesta.setText(suma +"");
-        
+        campoApuesta.setText(suma + "");
+
     }
 
     @FXML
     private void obtenerValor25() {
         int texto = Integer.parseInt(campoApuesta.getText());
         int suma = ficha.getFicha25() + texto;
-        campoApuesta.setText(suma +"");
+        campoApuesta.setText(suma + "");
     }
 
     @FXML
     private void obtenerValor50() {
         int texto = Integer.parseInt(campoApuesta.getText());
         int suma = ficha.getFicha50() + texto;
-        campoApuesta.setText(suma +"");
+        campoApuesta.setText(suma + "");
     }
 
     @FXML
     private void obtenerValor100() {
         int texto = Integer.parseInt(campoApuesta.getText());
         int suma = ficha.getFicha100() + texto;
-        campoApuesta.setText(suma +"");
+        campoApuesta.setText(suma + "");
     }
-    
 
 }
