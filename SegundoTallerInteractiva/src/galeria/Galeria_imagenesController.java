@@ -32,6 +32,10 @@ public class Galeria_imagenesController implements Initializable {
     private Button botonSiguiente;
     @FXML
     private Label campoLabel;
+    @FXML
+    private Button botonVolverPrimera;
+    @FXML
+    private Button botonUltimaImagen;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -42,7 +46,7 @@ public class Galeria_imagenesController implements Initializable {
     }
 
     @FXML
-    private void Anterior(ActionEvent event) {
+    private void Anterior() {
 
         if (contador == 6) {
             contador = 0;
@@ -54,7 +58,7 @@ public class Galeria_imagenesController implements Initializable {
     }
 
     @FXML
-    private void siguiente(ActionEvent event) {
+    private void siguiente() {
         if (contador == 6) {
             campoImagen.setImage(imagenes[6]);
         } else {
@@ -62,6 +66,24 @@ public class Galeria_imagenesController implements Initializable {
             campoImagen.setImage(imagenes[contador]);
         }
 
+    }
+    //4 ERRORES
+    //VOY A ULTIMA IMAGEN Y NO ME DEJA PRESIONAR ANTERIOR
+
+    
+
+    @FXML
+    private void volverPrimeraImagen() {
+        int primerImagen = 0;
+        campoImagen.setImage(imagenes[primerImagen]);
+    }
+
+    @FXML
+    private void irUltimaImagen() {
+        int ultimaImagen = 5;
+        campoImagen.setImage(imagenes[ultimaImagen]);
+        
+        
     }
 
 }
