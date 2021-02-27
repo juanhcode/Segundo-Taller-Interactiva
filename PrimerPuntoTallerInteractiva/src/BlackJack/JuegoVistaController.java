@@ -82,7 +82,7 @@ public class JuegoVistaController implements Initializable {
                 + "Emanuel Benjumea Bejarano", "Quienes somos", JOptionPane.INFORMATION_MESSAGE);
 
     }
-
+    
     @FXML
     private void Repartir() {
     }
@@ -104,6 +104,8 @@ public class JuegoVistaController implements Initializable {
         int texto = Integer.parseInt(campoApuesta.getText());
         int suma = ficha.getFicha1() + texto;
         campoApuesta.setText(suma +"");
+        int quitarDinero = ficha.getEfectivo() - suma;
+        campoEfectivo.setText(quitarDinero + "");
     }
 
     @FXML
