@@ -69,9 +69,11 @@ public class Galeria_imagenesController implements Initializable {
     }
     //4 ERRORES
     //VOY A ULTIMA IMAGEN Y NO ME DEJA PRESIONAR ANTERIOR
+    //VOY A PRIMERA IMAGEN Y NO ME DEJA PRESIONAR SIGUIENTE
+    //CUANDO VOY A LA ULTIMA Y LE DOY SIGUIENTE SALE ERROR
+    //CUANDO VOY A LA PRIMERA Y LE DOY ANTERIOR SALE ERROR
 
     
-
     @FXML
     private void volverPrimeraImagen() {
         int primerImagen = 0;
