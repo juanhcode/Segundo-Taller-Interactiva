@@ -115,6 +115,8 @@ public class JuegoVistaController implements Initializable {
         int texto = Integer.parseInt(campoApuesta.getText());
         int suma = ficha.getFicha5() + texto;
         campoApuesta.setText(suma + "");
+        int quitarDinero = ficha.getEfectivo() - suma;
+        campoEfectivo.setText(quitarDinero + "");
     }
 
     @FXML
@@ -122,6 +124,8 @@ public class JuegoVistaController implements Initializable {
         int texto = Integer.parseInt(campoApuesta.getText());
         int suma = ficha.getFicha10() + texto;
         campoApuesta.setText(suma + "");
+        int quitarDinero = ficha.getEfectivo() - suma;
+        campoEfectivo.setText(quitarDinero + "");
 
     }
 
@@ -130,6 +134,8 @@ public class JuegoVistaController implements Initializable {
         int texto = Integer.parseInt(campoApuesta.getText());
         int suma = ficha.getFicha25() + texto;
         campoApuesta.setText(suma + "");
+        int quitarDinero = ficha.getEfectivo() - suma;
+        campoEfectivo.setText(quitarDinero + "");
     }
 
     @FXML
@@ -137,6 +143,8 @@ public class JuegoVistaController implements Initializable {
         int texto = Integer.parseInt(campoApuesta.getText());
         int suma = ficha.getFicha50() + texto;
         campoApuesta.setText(suma + "");
+        int quitarDinero = ficha.getEfectivo() - suma;
+        campoEfectivo.setText(quitarDinero + "");
     }
 
     @FXML
@@ -144,6 +152,8 @@ public class JuegoVistaController implements Initializable {
         int texto = Integer.parseInt(campoApuesta.getText());
         int suma = ficha.getFicha100() + texto;
         campoApuesta.setText(suma + "");
+        int quitarDinero = ficha.getEfectivo() - suma;
+        campoEfectivo.setText(quitarDinero + "");
     }
 
 }

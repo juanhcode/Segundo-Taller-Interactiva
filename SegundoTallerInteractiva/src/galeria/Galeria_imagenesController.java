@@ -78,12 +78,14 @@ public class Galeria_imagenesController implements Initializable {
     private void volverPrimeraImagen() {
         int primerImagen = 0;
         campoImagen.setImage(imagenes[primerImagen]);
+        siguiente();
     }
 
     @FXML
     private void irUltimaImagen() {
         int ultimaImagen = 5;
         campoImagen.setImage(imagenes[ultimaImagen]);
+        Anterior();
         
         
     }
