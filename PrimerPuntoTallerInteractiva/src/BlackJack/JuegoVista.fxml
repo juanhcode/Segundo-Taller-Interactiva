@@ -67,7 +67,7 @@
                   <Font name="Arial Bold Italic" size="17.0" />
                </font>
             </Label>
-            <Button fx:id="botonRepartir" layoutX="152.0" layoutY="445.0" mnemonicParsing="false" onAction="#Repartir" prefHeight="36.0" prefWidth="105.0" text="Repartir" />
+            <Button fx:id="botonRepartir" cancelButton="true" layoutX="152.0" layoutY="445.0" mnemonicParsing="false" onAction="#Repartir" prefHeight="36.0" prefWidth="105.0" text="Repartir" />
             <Button fx:id="botonOtraCarta" layoutX="308.0" layoutY="445.0" mnemonicParsing="false" onAction="#otraCarta" prefHeight="36.0" prefWidth="105.0" text="Otra carta" />
             <Button fx:id="botonSeguro" layoutX="460.0" layoutY="445.0" mnemonicParsing="false" onAction="#seguro" prefHeight="36.0" prefWidth="105.0" text="Seguro" />
             <Button fx:id="botonOtroJuego" layoutX="619.0" layoutY="445.0" mnemonicParsing="false" onAction="#otroJuego" prefHeight="36.0" prefWidth="105.0" text="Otro juego" />

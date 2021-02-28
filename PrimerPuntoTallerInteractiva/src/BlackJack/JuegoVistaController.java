@@ -68,6 +68,9 @@ public class JuegoVistaController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         campoEfectivo.setText(ficha.getEfectivo() + "");
         campoApuesta.setText(0 + "");
+        botonRepartir.setDisable(true);
+        botonOtraCarta.setDisable(true);
+        botonSeguro.setDisable(true);
     }
 
     @FXML
@@ -86,6 +89,12 @@ public class JuegoVistaController implements Initializable {
 
     @FXML
     private void Repartir() {
+        botonFicha1.setDisable(true);
+        botonFicha5.setDisable(true);
+        botonFicha10.setDisable(true);
+        botonFicha25.setDisable(true);
+        botonFicha50.setDisable(true);
+        botonFicha100.setDisable(true);
     }
 
     @FXML
@@ -99,14 +108,15 @@ public class JuegoVistaController implements Initializable {
     @FXML
     private void otroJuego() {
     }
-    
-    private  int quitarDinero(Ficha f, int suma){
+
+    private int quitarDinero(Ficha f, int suma) {
         int resultado = f.getEfectivo() - suma;
         return resultado;
     }
 
     @FXML
     private void obtenerValor1() {
+        botonRepartir.setDisable(false);
         int texto = Integer.parseInt(campoApuesta.getText());
         int suma = ficha.getFicha1() + texto;
         campoApuesta.setText(suma + "");
@@ -116,6 +126,7 @@ public class JuegoVistaController implements Initializable {
 
     @FXML
     private void obtenerValor5() {
+        botonRepartir.setDisable(false);
         int texto = Integer.parseInt(campoApuesta.getText());
         int suma = ficha.getFicha5() + texto;
         campoApuesta.setText(suma + "");
@@ -125,6 +136,7 @@ public class JuegoVistaController implements Initializable {
 
     @FXML
     private void obtenerValor10() {
+        botonRepartir.setDisable(false);
         int texto = Integer.parseInt(campoApuesta.getText());
         int suma = ficha.getFicha10() + texto;
         campoApuesta.setText(suma + "");
@@ -135,6 +147,7 @@ public class JuegoVistaController implements Initializable {
 
     @FXML
     private void obtenerValor25() {
+        botonRepartir.setDisable(false);
         int texto = Integer.parseInt(campoApuesta.getText());
         int suma = ficha.getFicha25() + texto;
         campoApuesta.setText(suma + "");
@@ -144,6 +157,7 @@ public class JuegoVistaController implements Initializable {
 
     @FXML
     private void obtenerValor50() {
+        botonRepartir.setDisable(false);
         int texto = Integer.parseInt(campoApuesta.getText());
         int suma = ficha.getFicha50() + texto;
         campoApuesta.setText(suma + "");
@@ -153,11 +167,12 @@ public class JuegoVistaController implements Initializable {
 
     @FXML
     private void obtenerValor100() {
+        botonRepartir.setDisable(false);
         int texto = Integer.parseInt(campoApuesta.getText());
         int suma = ficha.getFicha100() + texto;
         campoApuesta.setText(suma + "");
         resultado = quitarDinero(ficha, suma);
         campoEfectivo.setText(resultado + "");
     }
-
+    
 }
