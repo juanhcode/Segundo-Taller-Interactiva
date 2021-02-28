@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
 import javafx.scene.image.*;
 
 /**
@@ -36,7 +37,12 @@ public class Galeria_imagenesController implements Initializable {
     private Button botonVolverPrimera;
     @FXML
     private Button botonUltimaImagen;
-
+    @FXML
+    private MenuItem botonIniciarCancion;
+    @FXML
+    private MenuItem botonPausarCancion;
+    
+    private Audio audio = new Audio();
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         for (int i = 0; i < 6; i++) {
@@ -88,6 +94,16 @@ public class Galeria_imagenesController implements Initializable {
         Anterior();
         
         
+    }
+
+    @FXML
+    private void iniciarCancion(ActionEvent event) {
+        audio.iniciarCancion();
+    }
+
+    @FXML
+    private void PausarCancion(ActionEvent event) {
+        audio.pausarCancion();
     }
 
 }

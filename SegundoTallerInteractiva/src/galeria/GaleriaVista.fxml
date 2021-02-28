@@ -2,6 +2,9 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
@@ -10,12 +13,27 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fx:id="campoImagen" fitHeight="453.0" fitWidth="500.0" layoutX="91.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="campoImagen" fitHeight="406.0" fitWidth="455.0" layoutX="114.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true" />
             <Button fx:id="botonAnterior" layoutX="226.0" layoutY="516.0" mnemonicParsing="false" onAction="#Anterior" text="Anterior" />
             <Button fx:id="botonSiguiente" layoutX="313.0" layoutY="516.0" mnemonicParsing="false" onAction="#siguiente" text="Siguiente" />
-            <Label fx:id="campoLabel" layoutX="313.0" layoutY="22.0" text="Label" />
+            <Label fx:id="campoLabel" layoutX="327.0" layoutY="46.0" text="Label" />
             <Button fx:id="botonVolverPrimera" layoutX="132.0" layoutY="516.0" mnemonicParsing="false" onAction="#volverPrimeraImagen" prefHeight="25.0" prefWidth="67.0" text="&lt;&lt;" />
             <Button fx:id="botonUltimaImagen" layoutX="402.0" layoutY="516.0" mnemonicParsing="false" onAction="#irUltimaImagen" prefHeight="25.0" prefWidth="67.0" text="&gt;&gt;" />
+            <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="682.0">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem fx:id="botonIniciarCancion" mnemonicParsing="false" onAction="#iniciarCancion" text="Iniciar cancion" />
+                        <MenuItem fx:id="botonPausarCancion" mnemonicParsing="false" onAction="#PausarCancion" text="Pausar Cancion" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Delete" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
          </children>
       </AnchorPane>
    </center>
