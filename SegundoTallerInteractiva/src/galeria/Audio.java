@@ -1,16 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package galeria;
-
 import java.applet.AudioClip;
-
-/**
- *
- * @author Usuario
- */
 public class Audio {
     private String ruta = "/galeria/Cancion.wav";
     private AudioClip sound;

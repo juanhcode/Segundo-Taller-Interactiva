@@ -1,4 +1,3 @@
-
 package galeria;
 
 import java.net.URL;
@@ -10,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.image.*;
+import javax.swing.JOptionPane;
 
 /**
  * FXML Controller class
@@ -20,7 +20,7 @@ public class Galeria_imagenesController implements Initializable {
 
     private int contador = 0;
     private Label labelimagen;
-    private Image imagenes[] = new Image[6];
+    private final Image imagenes[] = new Image[6];
     @FXML
     private ImageView campoImagen;
     @FXML
@@ -37,9 +37,12 @@ public class Galeria_imagenesController implements Initializable {
     private MenuItem botonIniciarCancion;
     @FXML
     private MenuItem botonPausarCancion;
-    
+
     private Audio audio = new Audio();
-    
+
+    @FXML
+    private MenuItem botonSalir;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         for (int i = 0; i < 6; i++) {
@@ -59,7 +62,7 @@ public class Galeria_imagenesController implements Initializable {
         }
 
     }
-    
+
     @FXML
     private void siguiente() {
         if (contador == 6) {
@@ -70,21 +73,12 @@ public class Galeria_imagenesController implements Initializable {
         }
 
     }
-    //4 ERRORES
-    //VOY A ULTIMA IMAGEN Y NO ME DEJA PRESIONAR ANTERIOR
-    //VOY A PRIMERA IMAGEN Y NO ME DEJA PRESIONAR SIGUIENTE
-    //CUANDO VOY A LA ULTIMA Y LE DOY SIGUIENTE SALE ERROR
-    //CUANDO VOY A LA PRIMERA Y LE DOY ANTERIOR SALE ERROR
-
-    private void avanzar() {
-
-    }
 
     @FXML
     private void volverPrimeraImagen() {
-            int primerImagen = 0;
-            campoImagen.setImage(imagenes[primerImagen]);
-            
+        int primerImagen = 0;
+        campoImagen.setImage(imagenes[primerImagen]);
+
     }
 
     @FXML
@@ -93,15 +87,28 @@ public class Galeria_imagenesController implements Initializable {
         campoImagen.setImage(imagenes[ultimaImagen]);
 
     }
-    
+
     @FXML
-    private void iniciarCancion(ActionEvent event) {
+    private void iniciarCancion() {
         audio.iniciarCancion();
     }
 
     @FXML
-    private void PausarCancion(ActionEvent event) {
+    private void PausarCancion() {
         audio.pausarCancion();
+    }
+
+    @FXML
+    private void salir() {
+        System.exit(0);
+    }
+
+    @FXML
+    private void mostrarIntegrantes(ActionEvent event) {
+        JOptionPane ventana = new JOptionPane();
+        ventana.showMessageDialog(null, "Juan Manuel Hoyos Contreras" + "\n"
+                + "Sebastian Cifuentes Florez" + "\n"
+                + "Emanuel Benjumea Bejarano", "Quienes somos", JOptionPane.INFORMATION_MESSAGE);
     }
 
 }
