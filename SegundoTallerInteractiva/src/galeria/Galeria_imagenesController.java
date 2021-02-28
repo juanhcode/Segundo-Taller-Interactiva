@@ -37,11 +37,10 @@ public class Galeria_imagenesController implements Initializable {
     private MenuItem botonIniciarCancion;
     @FXML
     private MenuItem botonPausarCancion;
-
-    private Audio audio = new Audio();
-
     @FXML
     private MenuItem botonSalir;
+
+    private Audio audio = new Audio();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -49,43 +48,53 @@ public class Galeria_imagenesController implements Initializable {
             imagenes[i] = new Image("/imagenes/a" + i + ".jpg");
         }
         campoImagen.setImage(imagenes[0]);
+        campoLabel.setText("a" + 0 + ".jpg");
     }
 
     @FXML
     private void Anterior() {
-
-        if (contador == 6) {
-            contador = 0;
+        if (contador == 0) {
+            contador = 1;
+            botonAnterior.setDisable(true);  
         } else {
+            botonSiguiente.setDisable(false); 
             contador--;
             campoImagen.setImage(imagenes[contador]);
+            campoLabel.setText("a" + contador + ".jpg");
         }
-
     }
 
     @FXML
     private void siguiente() {
-        if (contador == 6) {
-            campoImagen.setImage(imagenes[6]);
+        if (contador == 5) {
+            contador = 6;
+            botonSiguiente.setDisable(true); 
         } else {
+            botonAnterior.setDisable(false);
             contador++;
             campoImagen.setImage(imagenes[contador]);
+            campoLabel.setText("a" + contador + ".jpg");
         }
-
     }
 
     @FXML
     private void volverPrimeraImagen() {
+        contador = 0;
         int primerImagen = 0;
+        botonAnterior.setDisable(true);
+        botonSiguiente.setDisable(false);
         campoImagen.setImage(imagenes[primerImagen]);
-
+        campoLabel.setText("a" + 0 + ".jpg");
     }
 
     @FXML
     private void irUltimaImagen() {
+        contador = 5;
         int ultimaImagen = 5;
+        botonSiguiente.setDisable(true);
+        botonAnterior.setDisable(false);
         campoImagen.setImage(imagenes[ultimaImagen]);
-
+        campoLabel.setText("a" + ultimaImagen + ".jpg");
     }
 
     @FXML

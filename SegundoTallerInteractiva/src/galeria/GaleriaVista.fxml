@@ -8,28 +8,33 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="608.0" prefWidth="682.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="galeria.Galeria_imagenesController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="583.0" prefWidth="682.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="galeria.Galeria_imagenesController">
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
             <ImageView fx:id="campoImagen" fitHeight="406.0" fitWidth="455.0" layoutX="114.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true" />
-            <Button fx:id="botonAnterior" layoutX="226.0" layoutY="516.0" mnemonicParsing="false" onAction="#Anterior" text="Anterior" />
-            <Button fx:id="botonSiguiente" layoutX="313.0" layoutY="516.0" mnemonicParsing="false" onAction="#siguiente" text="Siguiente" />
-            <Label fx:id="campoLabel" layoutX="327.0" layoutY="46.0" text="Label" />
-            <Button fx:id="botonVolverPrimera" layoutX="132.0" layoutY="516.0" mnemonicParsing="false" onAction="#volverPrimeraImagen" prefHeight="25.0" prefWidth="67.0" text="&lt;&lt;" />
-            <Button fx:id="botonUltimaImagen" layoutX="402.0" layoutY="516.0" mnemonicParsing="false" onAction="#irUltimaImagen" prefHeight="25.0" prefWidth="67.0" text="&gt;&gt;" />
+            <Button fx:id="botonAnterior" layoutX="249.0" layoutY="516.0" mnemonicParsing="false" onAction="#Anterior" prefHeight="25.0" prefWidth="64.0" text="&lt;" />
+            <Button fx:id="botonSiguiente" layoutX="348.0" layoutY="516.0" mnemonicParsing="false" onAction="#siguiente" prefHeight="25.0" prefWidth="68.0" text="&gt;" />
+            <Label fx:id="campoLabel" layoutX="313.0" layoutY="51.0" text="Label">
+               <font>
+                  <Font size="15.0" />
+               </font></Label>
+            <Button fx:id="botonVolverPrimera" layoutX="139.0" layoutY="516.0" mnemonicParsing="false" onAction="#volverPrimeraImagen" prefHeight="25.0" prefWidth="67.0" text="&lt;&lt;" />
+            <Button fx:id="botonUltimaImagen" layoutX="456.0" layoutY="516.0" mnemonicParsing="false" onAction="#irUltimaImagen" prefHeight="25.0" prefWidth="67.0" text="&gt;&gt;" />
             <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="682.0">
               <menus>
-                <Menu mnemonicParsing="false" text="File">
+                <Menu mnemonicParsing="false" text="Archivo">
                   <items>
+                        <MenuItem fx:id="botonSalir" mnemonicParsing="false" onAction="#salir" text="Salir" />
                     <MenuItem fx:id="botonIniciarCancion" mnemonicParsing="false" onAction="#iniciarCancion" text="Iniciar cancion" />
                         <MenuItem fx:id="botonPausarCancion" mnemonicParsing="false" onAction="#PausarCancion" text="Pausar Cancion" />
                   </items>
                 </Menu>
-                <Menu mnemonicParsing="false" text="Edit">
+                <Menu mnemonicParsing="false" text="Integrantes">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="Delete" />
+                    <MenuItem mnemonicParsing="false" onAction="#mostrarIntegrantes" text="Quienes Somos" />
                   </items>
                 </Menu>
               </menus>
