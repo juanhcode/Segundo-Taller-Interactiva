@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package galeria;
 
 import java.net.URL;
@@ -43,6 +39,7 @@ public class Galeria_imagenesController implements Initializable {
     private MenuItem botonPausarCancion;
     
     private Audio audio = new Audio();
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         for (int i = 0; i < 6; i++) {
@@ -62,7 +59,7 @@ public class Galeria_imagenesController implements Initializable {
         }
 
     }
-
+    
     @FXML
     private void siguiente() {
         if (contador == 6) {
@@ -79,23 +76,24 @@ public class Galeria_imagenesController implements Initializable {
     //CUANDO VOY A LA ULTIMA Y LE DOY SIGUIENTE SALE ERROR
     //CUANDO VOY A LA PRIMERA Y LE DOY ANTERIOR SALE ERROR
 
-    
+    private void avanzar() {
+
+    }
+
     @FXML
     private void volverPrimeraImagen() {
-        int primerImagen = 0;
-        campoImagen.setImage(imagenes[primerImagen]);
-        siguiente();
+            int primerImagen = 0;
+            campoImagen.setImage(imagenes[primerImagen]);
+            
     }
 
     @FXML
     private void irUltimaImagen() {
         int ultimaImagen = 5;
         campoImagen.setImage(imagenes[ultimaImagen]);
-        Anterior();
-        
-        
-    }
 
+    }
+    
     @FXML
     private void iniciarCancion(ActionEvent event) {
         audio.iniciarCancion();
