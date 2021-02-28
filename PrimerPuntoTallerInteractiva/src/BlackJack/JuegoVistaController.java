@@ -117,62 +117,98 @@ public class JuegoVistaController implements Initializable {
     @FXML
     private void obtenerValor1() {
         botonRepartir.setDisable(false);
+        int conver = Integer.parseInt(campoEfectivo.getText());
         int texto = Integer.parseInt(campoApuesta.getText());
         int suma = ficha.getFicha1() + texto;
-        campoApuesta.setText(suma + "");
-        resultado = quitarDinero(ficha, suma);
-        campoEfectivo.setText(resultado + "");
+        if(conver > 0) {
+            campoApuesta.setText(suma + "");
+            resultado = quitarDinero(ficha, suma);
+            campoEfectivo.setText(resultado + "");
+        } else {
+            campoEfectivo.setText("0");
+            JOptionPane.showMessageDialog(null, "No puede Apostar mas","ERROR",JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     @FXML
     private void obtenerValor5() {
         botonRepartir.setDisable(false);
+        int conver = Integer.parseInt(campoEfectivo.getText());
         int texto = Integer.parseInt(campoApuesta.getText());
         int suma = ficha.getFicha5() + texto;
-        campoApuesta.setText(suma + "");
-        resultado = quitarDinero(ficha, suma);
-        campoEfectivo.setText(resultado + "");
+        if(conver > 0) {
+            campoApuesta.setText(suma + "");
+            resultado = quitarDinero(ficha, suma);
+            campoEfectivo.setText(resultado + "");
+        } else {
+            campoEfectivo.setText("0");
+            JOptionPane.showMessageDialog(null, "No puede Apostar mas","ERROR",JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     @FXML
     private void obtenerValor10() {
         botonRepartir.setDisable(false);
+        int conver = Integer.parseInt(campoEfectivo.getText());
         int texto = Integer.parseInt(campoApuesta.getText());
         int suma = ficha.getFicha10() + texto;
-        campoApuesta.setText(suma + "");
-        resultado = quitarDinero(ficha, suma);
-        campoEfectivo.setText(resultado + "");
-
+        if(conver > 0) {
+            campoApuesta.setText(suma + "");
+            resultado = quitarDinero(ficha, suma);
+            campoEfectivo.setText(resultado + "");
+        } else {
+            campoEfectivo.setText("0");
+            JOptionPane.showMessageDialog(null, "No puede Apostar mas","ERROR",JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     @FXML
     private void obtenerValor25() {
         botonRepartir.setDisable(false);
+        int conver = Integer.parseInt(campoEfectivo.getText());
         int texto = Integer.parseInt(campoApuesta.getText());
         int suma = ficha.getFicha25() + texto;
-        campoApuesta.setText(suma + "");
-        resultado = quitarDinero(ficha, suma);
-        campoEfectivo.setText(resultado + "");
+        if(conver > 0) {
+            campoApuesta.setText(suma + "");
+            resultado = quitarDinero(ficha, suma);
+            campoEfectivo.setText(resultado + "");
+        } else {
+            campoEfectivo.setText("0");
+            JOptionPane.showMessageDialog(null, "No puede Apostar mas","ERROR",JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     @FXML
     private void obtenerValor50() {
         botonRepartir.setDisable(false);
+        int conver = Integer.parseInt(campoEfectivo.getText());
         int texto = Integer.parseInt(campoApuesta.getText());
         int suma = ficha.getFicha50() + texto;
-        campoApuesta.setText(suma + "");
-        resultado = quitarDinero(ficha, suma);
-        campoEfectivo.setText(resultado + "");
+        if (conver > 0) {
+            campoApuesta.setText(suma + "");
+            resultado = quitarDinero(ficha, suma);
+            campoEfectivo.setText(resultado + "");
+        } else {
+            campoEfectivo.setText("0");
+            JOptionPane.showMessageDialog(null, "No puede Apostar mas","ERROR",JOptionPane.ERROR_MESSAGE);
+        }
+
     }
 
     @FXML
     private void obtenerValor100() {
         botonRepartir.setDisable(false);
+        int conver = Integer.parseInt(campoEfectivo.getText());
         int texto = Integer.parseInt(campoApuesta.getText());
         int suma = ficha.getFicha100() + texto;
-        campoApuesta.setText(suma + "");
-        resultado = quitarDinero(ficha, suma);
-        campoEfectivo.setText(resultado + "");
+        if (conver > 0) {
+            campoApuesta.setText(suma + "");
+            resultado = quitarDinero(ficha, suma);
+            campoEfectivo.setText(resultado + "");
+        } else {
+            campoEfectivo.setText("0");
+            JOptionPane.showMessageDialog(null, "No puede Apostar mas","ERROR",JOptionPane.ERROR_MESSAGE);
+        }
     }
-    
+
 }
