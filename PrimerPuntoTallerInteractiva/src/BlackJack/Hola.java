@@ -17,6 +17,8 @@ public class Hola {
     public static void main(String[] args) {
         PaqueteDeCartas hola = new PaqueteDeCartas();
         System.out.println(hola.obtenerLetra());
+        hola.darVarlorCarta();
+        System.out.println(hola.getCartaActual());
     }
     
 }
