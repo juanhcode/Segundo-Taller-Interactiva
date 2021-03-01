@@ -12,11 +12,11 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="572.0" prefWidth="981.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BlackJack.JuegoVistaController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="577.0" prefWidth="988.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BlackJack.JuegoVistaController">
    <center>
-      <AnchorPane prefHeight="577.0" prefWidth="959.0" style="-fx-background-color: GREEN;" BorderPane.alignment="CENTER">
+      <AnchorPane fx:id="AnchorFondo" prefHeight="577.0" prefWidth="959.0" styleClass="AnchorFondo" stylesheets="@estiloFichas.css" BorderPane.alignment="CENTER">
          <children>
-            <MenuBar fx:id="menuBar" layoutY="-1.0" prefHeight="28.0" prefWidth="981.0">
+            <MenuBar fx:id="menuBar" layoutY="-1.0" prefHeight="28.0" prefWidth="1006.0">
               <menus>
                 <Menu mnemonicParsing="false" text="Archivo">
                   <items>
