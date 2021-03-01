@@ -15,7 +15,7 @@ public class PaqueteDeCartas {
 
     }
 
-    public String barajar() {
+    public String identificarNumeroCarta() {
         Random numeros = new Random();
         int numero = 1 + numeros.nextInt(13);
         String hola;
@@ -23,27 +23,45 @@ public class PaqueteDeCartas {
         return hola;
     }
 
-    public String obtenerLetra() {
+    public String barajar() {
         Random aleatorios = new Random();
         int numero = 1 + aleatorios.nextInt(4);
         String variable = "";
         switch (numero) {
             case 1:
-                variable = barajar() + "C" + ".png";
+                variable = identificarNumeroCarta() + "C" + ".png";
                 break;
             case 2:
-                variable = barajar() + "D" + ".png";
+                variable = identificarNumeroCarta() + "D" + ".png";
                 break;
             case 3:
-                variable = barajar() + "T" + ".png";
+                variable = identificarNumeroCarta() + "T" + ".png";
                 break;
             case 4:
-                variable = barajar() + "P" + ".png";
+                variable = identificarNumeroCarta() + "P" + ".png";
                 break;
         }
-        return variable;
+        if (variable.equals("2C.png") || (variable.equals("2D.png") || (variable.equals("2P.png") || (variable.equals("2T.png"))))) {
+            cartaActual = 2;
+        } else if (variable.equals("3C.png") || (variable.equals("3D.png") || (variable.equals("3P.png") || (variable.equals("3T.png"))))) {
+            cartaActual = 3;
+        } else if (variable.equals("4C.png") || (variable.equals("4D.png") || (variable.equals("4P.png") || (variable.equals("4T.png"))))) {
+            cartaActual = 4;
+        } else if (variable.equals("5C.png") || (variable.equals("5D.png") || (variable.equals("5P.png") || (variable.equals("5T.png"))))) {
+            cartaActual = 5;
+        } else if (variable.equals("6C.png") || (variable.equals("6D.png") || (variable.equals("6P.png") || (variable.equals("6T.png"))))) {
+            cartaActual = 6;
+        } else if (variable.equals("7C.png") || (variable.equals("7D.png") || (variable.equals("7P.png") || (variable.equals("7T.png"))))) {
+            cartaActual = 7;
+        } else if (variable.equals("8C.png") || (variable.equals("8D.png") || (variable.equals("8P.png") || (variable.equals("8T.png"))))) {
+            cartaActual = 8;
+        } else if (variable.equals("9C.png") || (variable.equals("9D.png") || (variable.equals("9P.png") || (variable.equals("9T.png"))))) {
+            cartaActual = 9;
+        } else {
+            cartaActual = 10;
+        }
+        return "/Imagenes Cartas/"+variable;
     }
-    
 
     public Carta[] getPaquete() {
         return paquete;
@@ -85,6 +103,8 @@ public class PaqueteDeCartas {
         this.suma = suma;
     }
     
-    
+    public String cartaObtenida(){
+        return barajar();
+    }
 
 }
