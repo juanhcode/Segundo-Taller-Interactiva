@@ -11,14 +11,29 @@ package BlackJack;
  */
 public class Hola {
 
-    /** 
+    /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        PaqueteDeCartas hola = new PaqueteDeCartas();
-        System.out.println(hola.obtenerLetra());
-        hola.darVarlorCarta();
-        System.out.println(hola.getCartaActual());
+
+        
+        PaqueteDeCartas paquete = new PaqueteDeCartas();
+        
+        
+        String carta = paquete.barajar();
+        int valorCarta = paquete.getCartaActual();
+        System.out.println(carta);
+        System.out.println(valorCarta);
+        carta = paquete.barajar();
+        valorCarta = paquete.getCartaActual();
+        System.out.println(carta);
+        System.out.println(valorCarta);
+        
+        /*
+        JuegoVistaController pruebas = new JuegoVistaController();
+        pruebas.Imprimir();
+        */
+
     }
-    
+
 }

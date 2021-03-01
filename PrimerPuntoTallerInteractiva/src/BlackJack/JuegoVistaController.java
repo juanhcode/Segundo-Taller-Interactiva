@@ -25,13 +25,12 @@ import javax.swing.JOptionPane;
  */
 public class JuegoVistaController implements Initializable {
 
-    
     //Menu
     @FXML
     private MenuBar menuBar;
     @FXML
     private MenuItem mostrarIntegrantes;
-    
+
     //Campos
     @FXML
     private TextField campoEfectivo;
@@ -41,8 +40,7 @@ public class JuegoVistaController implements Initializable {
     private TextField campoPuntajeJugador;
     @FXML
     private TextField campoPuntajeCupier;
-    
-    
+
     //Repartir,otra Carta,Seguro y Otro Juego
     @FXML
     private Button botonRepartir;
@@ -70,11 +68,12 @@ public class JuegoVistaController implements Initializable {
     //Ficha
     private Ficha ficha = new Ficha();
     private int resultado; //actualiza el efectivo
-    
-    //Paquete
-    private PaqueteDeCartas paquete;
 
-    
+    //Paquete
+    private PaqueteDeCartas paquete = new PaqueteDeCartas();
+
+    private int cartaActual;
+
     //ImageView Jugador
     @FXML
     private ImageView campoImagenJugador;
@@ -84,7 +83,7 @@ public class JuegoVistaController implements Initializable {
     private ImageView campoImagenJugador3;
     @FXML
     private ImageView campoImagenJugador4;
-    
+
     //ImageView Cupier
     @FXML
     private ImageView campoImagenCupier;
@@ -94,26 +93,32 @@ public class JuegoVistaController implements Initializable {
     private ImageView campoImagenCupier3;
     @FXML
     private ImageView campoImagenCupier4;
-    
+
     //RUTA CARTAS al Azar Jugador
     String imagenJugador;
     String imagenJugador2;
     String imagenJugador3;
     String imagenJugador4;
-    
-    
+
     //RUTA CARTAS al Azar Cupier
     String imagenCupier;
     String imagenCupier2;
     String imagenCupier3;
     String imagenCupier4;
-    
+
     private Image imagenInicial;
     private Image imagenVacia;
     
+    //Puntaje
+    private int puntaje;
     
+    //Valor de la Carta
+    int carta1;
+    int carta2;
+    int carta3;
+    int carta4;
     
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         campoEfectivo.setText(ficha.getEfectivo() + "");
@@ -127,6 +132,8 @@ public class JuegoVistaController implements Initializable {
 
     @FXML
     private void Repartir() {
+        imagenVacia = campoImagenCupier4.getImage();
+        
         //Deshabilitada Fichas al repartir
         botonFicha1.setDisable(true);
         botonFicha5.setDisable(true);
@@ -134,35 +141,44 @@ public class JuegoVistaController implements Initializable {
         botonFicha25.setDisable(true);
         botonFicha50.setDisable(true);
         botonFicha100.setDisable(true);
-        
+
+        //Deshabilita Repartir
         botonRepartir.setDisable(true);
+
+        //Habilita Otra Carta y Seguro
         botonOtraCarta.setDisable(false);
         botonSeguro.setDisable(false);
-        imagenVacia = campoImagenCupier4.getImage();
+
+        int suma=0;
+        String cara = paquete.barajar();
+        int carta1 = paquete.getCartaActual();
+        String cara2 = paquete.barajar();
+        int carta2 = paquete.getCartaActual();
         
-        
-        String cara = "/Imagenes Cartas/"+obtenerLetra();
-        String cara2 = "/Imagenes Cartas/"+obtenerLetra();
-        String cara3 = "/Imagenes Cartas/"+obtenerLetra();
         Image imagen1 = new Image(cara);
         Image imagen2 = new Image(cara2);
-        Image imagen3 = new Image(cara3);
-        campoImagenJugador.setImage(imagen1);   
+        suma = carta1 + carta2;
+        campoPuntajeJugador.setText(suma+"");
+        
+        //String cara3 = paquete.barajar();        
+        //Image imagen3 = new Image(cara3);
+        campoImagenJugador.setImage(imagen1);
         campoImagenJugador2.setImage(imagen2);
-        campoImagenCupier2.setImage(imagen3);
+        //campoImagenCupier2.setImage(imagen3);
+        //campoPuntajeCupier.setText(cartaActual + "");
     }
 
     @FXML
     private void otraCarta() {
-        imagenJugador3 = "/Imagenes Cartas/"+obtenerLetra();
+        imagenJugador3 = "/Imagenes Cartas/" + obtenerLetra();
         Image imagen3 = new Image(imagenJugador3);
         campoImagenJugador3.setImage(imagen3);
     }
 
     @FXML
     private void seguro() {
-        imagenCupier3 = "/Imagenes Cartas/"+obtenerLetra();
-        imagenCupier = "/Imagenes Cartas/"+obtenerLetra();
+        imagenCupier3 = "/Imagenes Cartas/" + obtenerLetra();
+        imagenCupier = "/Imagenes Cartas/" + obtenerLetra();
         imagenInicial = new Image(imagenCupier);
         campoImagenCupier.setImage(imagenInicial);
         botonOtraCarta.setDisable(true);
@@ -183,9 +199,7 @@ public class JuegoVistaController implements Initializable {
         campoImagenCupier2.setImage(imagenVacia);
         campoImagenCupier3.setImage(imagenVacia);
         campoImagenCupier4.setImage(imagenVacia);
-        
-        
-        
+
     }
 
     private int quitarDinero(Ficha f, int suma) {
@@ -289,21 +303,32 @@ public class JuegoVistaController implements Initializable {
             JOptionPane.showMessageDialog(null, "No puede Apostar mas", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }
-    
-    
+
+    @FXML
+    private void salirDelJuego() {
+        System.exit(0);
+    }
+
+    @FXML
+    private void mostrarIntegrantes() {
+        JOptionPane ventana = new JOptionPane();
+        ventana.showMessageDialog(null, "Juan Manuel Hoyos Contreras" + "\n"
+                + "Sebastian Cifuentes Florez" + "\n"
+                + "Emanuel Benjumea Bejarano", "Quienes somos", JOptionPane.INFORMATION_MESSAGE);
+
+    }
+
     public String barajar() {
         Random numeros = new Random();
         int numero = 1 + numeros.nextInt(13);
         String hola;
-        //numerosAleatorios = (int) (Math.random()) * 13 + "";
         hola = numero + "";
         return hola;
     }
-    
+
     public String obtenerLetra() {
         Random aleatorios = new Random();
         int numero = 1 + aleatorios.nextInt(4);
-        //letra = (int) ((Math.random()) * 4);
         String variable = "";
         switch (numero) {
             case 1:
@@ -319,21 +344,35 @@ public class JuegoVistaController implements Initializable {
                 variable = barajar() + "P" + ".png";
                 break;
         }
+        if (variable.equals("2C.png") || (variable.equals("2D.png") || (variable.equals("2P.png") || (variable.equals("2T.png"))))) {
+            cartaActual = 2;
+        } else if (variable.equals("3C.png") || (variable.equals("3D.png") || (variable.equals("3P.png") || (variable.equals("3T.png"))))) {
+            cartaActual = 3;
+        } else if (variable.equals("4C.png") || (variable.equals("4D.png") || (variable.equals("4P.png") || (variable.equals("4T.png"))))) {
+            cartaActual = 4;
+        } else if (variable.equals("5C.png") || (variable.equals("5D.png") || (variable.equals("5P.png") || (variable.equals("5T.png"))))) {
+            cartaActual = 5;
+        } else if (variable.equals("6C.png") || (variable.equals("6D.png") || (variable.equals("6P.png") || (variable.equals("6T.png"))))) {
+            cartaActual = 6;
+        } else if (variable.equals("7C.png") || (variable.equals("7D.png") || (variable.equals("7P.png") || (variable.equals("7T.png"))))) {
+            cartaActual = 7;
+        } else if (variable.equals("8C.png") || (variable.equals("8D.png") || (variable.equals("8P.png") || (variable.equals("8T.png"))))) {
+            cartaActual = 8;
+        } else if (variable.equals("9C.png") || (variable.equals("9D.png") || (variable.equals("9P.png") || (variable.equals("9T.png"))))) {
+            cartaActual = 9;
+        } else {
+            cartaActual = 10;
+        }
         return variable;
     }
-    
-    @FXML
-    private void salirDelJuego() {
-        System.exit(0);
+
+    public void Imprimir() {
+        String Hola = paquete.barajar();
+        if (Hola == null) {
+            System.out.println("perra");
+        } else {
+            System.out.println(Hola);
+            System.out.println("Valor: " + paquete.getCartaActual());
+        }
     }
-
-    @FXML
-    private void mostrarIntegrantes() {
-        JOptionPane ventana = new JOptionPane();
-        ventana.showMessageDialog(null, "Juan Manuel Hoyos Contreras" + "\n"
-                + "Sebastian Cifuentes Florez" + "\n"
-                + "Emanuel Benjumea Bejarano", "Quienes somos", JOptionPane.INFORMATION_MESSAGE);
-
-    }
-
 }
