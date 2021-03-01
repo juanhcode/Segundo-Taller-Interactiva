@@ -6,14 +6,16 @@
 package BlackJack;
 
 import java.net.URL;
+import java.util.Random;
 import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javax.swing.JOptionPane;
 
 /**
@@ -60,6 +62,22 @@ public class JuegoVistaController implements Initializable {
 
     private Ficha ficha = new Ficha();
     private int resultado;
+    @FXML
+    private ImageView campoImagenCupier;
+
+    private PaqueteDeCartas paquete;
+
+    @FXML
+    private ImageView campoImagenJugador;
+    @FXML
+    private ImageView campoJugador3;
+    @FXML
+    private ImageView campoJugador2;
+    
+    //RUTA CARTAS al Azar
+    
+    
+
 
     /**
      * Initializes the controller class.
@@ -71,6 +89,8 @@ public class JuegoVistaController implements Initializable {
         botonRepartir.setDisable(true);
         botonOtraCarta.setDisable(true);
         botonSeguro.setDisable(true);
+        campoPuntajeJugador.setText(0 + "");
+        campoPuntajeCupier.setText(0 + "");
     }
 
     @FXML
@@ -95,6 +115,18 @@ public class JuegoVistaController implements Initializable {
         botonFicha25.setDisable(true);
         botonFicha50.setDisable(true);
         botonFicha100.setDisable(true);
+        
+        String cara = "/Imagenes Cartas/"+obtenerLetra();
+        String cara2 = "/Imagenes Cartas/"+obtenerLetra();
+        String cara3 = "/Imagenes Cartas/"+obtenerLetra();
+        Image imagen1 = new Image(cara);
+        Image imagen2 = new Image(cara2);
+        Image imagen3 = new Image(cara3);
+        campoImagenJugador.setImage(imagen1);
+        campoJugador2.setImage(imagen2);
+        campoJugador3.setImage(imagen3);
+        
+        
     }
 
     @FXML
@@ -120,13 +152,13 @@ public class JuegoVistaController implements Initializable {
         int conver = Integer.parseInt(campoEfectivo.getText());
         int texto = Integer.parseInt(campoApuesta.getText());
         int suma = ficha.getFicha1() + texto;
-        if(conver > 0) {
+        if (conver > 0) {
             campoApuesta.setText(suma + "");
             resultado = quitarDinero(ficha, suma);
             campoEfectivo.setText(resultado + "");
         } else {
             campoEfectivo.setText("0");
-            JOptionPane.showMessageDialog(null, "No puede Apostar mas","ERROR",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "No puede Apostar mas", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -136,13 +168,13 @@ public class JuegoVistaController implements Initializable {
         int conver = Integer.parseInt(campoEfectivo.getText());
         int texto = Integer.parseInt(campoApuesta.getText());
         int suma = ficha.getFicha5() + texto;
-        if(conver > 0) {
+        if (conver > 0) {
             campoApuesta.setText(suma + "");
             resultado = quitarDinero(ficha, suma);
             campoEfectivo.setText(resultado + "");
         } else {
             campoEfectivo.setText("0");
-            JOptionPane.showMessageDialog(null, "No puede Apostar mas","ERROR",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "No puede Apostar mas", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -152,13 +184,13 @@ public class JuegoVistaController implements Initializable {
         int conver = Integer.parseInt(campoEfectivo.getText());
         int texto = Integer.parseInt(campoApuesta.getText());
         int suma = ficha.getFicha10() + texto;
-        if(conver > 0) {
+        if (conver > 0) {
             campoApuesta.setText(suma + "");
             resultado = quitarDinero(ficha, suma);
             campoEfectivo.setText(resultado + "");
         } else {
             campoEfectivo.setText("0");
-            JOptionPane.showMessageDialog(null, "No puede Apostar mas","ERROR",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "No puede Apostar mas", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -168,13 +200,13 @@ public class JuegoVistaController implements Initializable {
         int conver = Integer.parseInt(campoEfectivo.getText());
         int texto = Integer.parseInt(campoApuesta.getText());
         int suma = ficha.getFicha25() + texto;
-        if(conver > 0) {
+        if (conver > 0) {
             campoApuesta.setText(suma + "");
             resultado = quitarDinero(ficha, suma);
             campoEfectivo.setText(resultado + "");
         } else {
             campoEfectivo.setText("0");
-            JOptionPane.showMessageDialog(null, "No puede Apostar mas","ERROR",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "No puede Apostar mas", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -190,7 +222,7 @@ public class JuegoVistaController implements Initializable {
             campoEfectivo.setText(resultado + "");
         } else {
             campoEfectivo.setText("0");
-            JOptionPane.showMessageDialog(null, "No puede Apostar mas","ERROR",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "No puede Apostar mas", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
 
     }
@@ -207,8 +239,40 @@ public class JuegoVistaController implements Initializable {
             campoEfectivo.setText(resultado + "");
         } else {
             campoEfectivo.setText("0");
-            JOptionPane.showMessageDialog(null, "No puede Apostar mas","ERROR",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "No puede Apostar mas", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
+    }
+    
+    
+    public String barajar() {
+        Random numeros = new Random();
+        int numero = 1 + numeros.nextInt(13);
+        String hola;
+        //numerosAleatorios = (int) (Math.random()) * 13 + "";
+        hola = numero + "";
+        return hola;
+    }
+    
+    public String obtenerLetra() {
+        Random aleatorios = new Random();
+        int numero = 1 + aleatorios.nextInt(4);
+        //letra = (int) ((Math.random()) * 4);
+        String variable = "";
+        switch (numero) {
+            case 1:
+                variable = barajar() + "C" + ".png";
+                break;
+            case 2:
+                variable = barajar() + "D" + ".png";
+                break;
+            case 3:
+                variable = barajar() + "T" + ".png";
+                break;
+            case 4:
+                variable = barajar() + "P" + ".png";
+                break;
+        }
+        return variable;
     }
 
 }

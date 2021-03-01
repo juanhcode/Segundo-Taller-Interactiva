@@ -19,7 +19,7 @@ public class Administrador extends Application {
         primaryStage.setTitle("Juego 21"); //Titulo
         initRootLayout();
     }
-
+    
     public void initRootLayout() {
 
         try {
@@ -28,7 +28,7 @@ public class Administrador extends Application {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Administrador.class.getResource("/BlackJack/JuegoVista.fxml"));
             rootLaoyut = (BorderPane) loader.load();
-
+            
             //Crear la escena
             Scene scene = new Scene(rootLaoyut);
             primaryStage.setScene(scene);

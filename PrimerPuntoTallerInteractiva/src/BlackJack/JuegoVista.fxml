@@ -45,7 +45,7 @@
                   <Font name="Arial Bold Italic" size="22.0" />
                </font>
             </Label>
-            <ImageView fitHeight="191.0" fitWidth="145.0" layoutX="222.0" layoutY="114.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="campoImagenJugador" fitHeight="191.0" fitWidth="145.0" layoutX="256.0" layoutY="114.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Imagenes%20Cartas/0.png" />
                </image>
@@ -55,12 +55,12 @@
                   <Font name="Arial Bold Italic" size="22.0" />
                </font>
             </Label>
-            <ImageView fitHeight="205.0" fitWidth="139.0" layoutX="539.0" layoutY="114.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="campoImagenCupier" fitHeight="205.0" fitWidth="139.0" layoutX="539.0" layoutY="114.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Imagenes%20Cartas/0.png" />
                </image>
             </ImageView>
-            <TextField fx:id="campoPuntajeJugador" editable="false" layoutX="276.0" layoutY="322.0" prefHeight="34.0" prefWidth="30.0" />
+            <TextField fx:id="campoPuntajeJugador" editable="false" layoutX="293.0" layoutY="318.0" prefHeight="34.0" prefWidth="30.0" />
             <TextField fx:id="campoPuntajeCupier" editable="false" layoutX="590.0" layoutY="318.0" prefHeight="34.0" prefWidth="30.0" />
             <Label layoutX="372.0" layoutY="371.0" text="***Haga su apuesta***" textFill="WHITE">
                <font>
@@ -77,6 +77,8 @@
             <Button fx:id="botonFicha25" focusTraversable="false" layoutX="41.0" layoutY="359.0" mnemonicParsing="false" onAction="#obtenerValor25" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: green;" styleClass="botonFicha25" stylesheets="@estiloFichas.css" />
             <Button fx:id="botonFicha50" focusTraversable="false" layoutX="94.0" layoutY="359.0" mnemonicParsing="false" onAction="#obtenerValor50" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: green;" styleClass="botonFicha50" stylesheets="@estiloFichas.css" />
             <Button fx:id="botonFicha100" focusTraversable="false" layoutX="149.0" layoutY="359.0" mnemonicParsing="false" onAction="#obtenerValor100" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: green;" styleClass="botonFicha100" stylesheets="@estiloFichas.css" />
+            <ImageView fx:id="campoJugador3" fitHeight="191.0" fitWidth="145.0" layoutX="222.0" layoutY="114.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="campoJugador2" fitHeight="191.0" fitWidth="145.0" layoutX="179.0" layoutY="114.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </AnchorPane>
    </center>
