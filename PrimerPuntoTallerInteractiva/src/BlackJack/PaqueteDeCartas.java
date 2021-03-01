@@ -19,7 +19,6 @@ public class PaqueteDeCartas {
         Random numeros = new Random();
         int numero = 1 + numeros.nextInt(13);
         String hola;
-        //numerosAleatorios = (int) (Math.random()) * 13 + "";
         hola = numero + "";
         return hola;
     }
@@ -27,7 +26,6 @@ public class PaqueteDeCartas {
     public String obtenerLetra() {
         Random aleatorios = new Random();
         int numero = 1 + aleatorios.nextInt(4);
-        //letra = (int) ((Math.random()) * 4);
         String variable = "";
         switch (numero) {
             case 1:
@@ -45,5 +43,55 @@ public class PaqueteDeCartas {
         }
         return variable;
     }
+    
+    public void darVarlorCarta(){
+        String carta = obtenerLetra();
+        if(carta.equals("2C.png") || carta.equals("2D.png") || carta.equals("2P.png") || carta.equals("2T.png")){
+            cartaActual = 2;
+        }
+        
+    }
+
+    public Carta[] getPaquete() {
+        return paquete;
+    }
+
+    public void setPaquete(Carta[] paquete) {
+        this.paquete = paquete;
+    }
+
+    public int getCartaActual() {
+        return cartaActual;
+    }
+
+    public void setCartaActual(int cartaActual) {
+        this.cartaActual = cartaActual;
+    }
+
+    public String getNumerosAleatorios() {
+        return numerosAleatorios;
+    }
+
+    public void setNumerosAleatorios(String numerosAleatorios) {
+        this.numerosAleatorios = numerosAleatorios;
+    }
+
+    public int getLetra() {
+        return letra;
+    }
+
+    public void setLetra(int letra) {
+        this.letra = letra;
+    }
+
+    public int getSuma() {
+        return suma;
+    }
+
+    public void setSuma(int suma) {
+        this.suma = suma;
+    }
+    
+    
 
 }

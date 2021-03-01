@@ -1,12 +1,13 @@
 package BlackJack;
+
 public class Carta {
-    
+
     private String cara;
     private String palo;
-    
-    public Carta(String cara,String palo){
-        this.cara = cara;
-        this.palo = palo;
+    private String carta;
+    private int valor;
+
+    public Carta() {
     }
 
     public String getCara() {
@@ -23,5 +24,13 @@ public class Carta {
 
     public void setPalo(String palo) {
         this.palo = palo;
+    }
+
+    public int getValor() {
+        return valor;
+    }
+
+    public void setValor(int valor) {
+        this.valor = valor;
     }
 }

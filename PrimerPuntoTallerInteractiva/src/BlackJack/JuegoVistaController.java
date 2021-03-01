@@ -25,10 +25,14 @@ import javax.swing.JOptionPane;
  */
 public class JuegoVistaController implements Initializable {
 
+    
+    //Menu
     @FXML
     private MenuBar menuBar;
     @FXML
     private MenuItem mostrarIntegrantes;
+    
+    //Campos
     @FXML
     private TextField campoEfectivo;
     @FXML
@@ -37,6 +41,9 @@ public class JuegoVistaController implements Initializable {
     private TextField campoPuntajeJugador;
     @FXML
     private TextField campoPuntajeCupier;
+    
+    
+    //Repartir,otra Carta,Seguro y Otro Juego
     @FXML
     private Button botonRepartir;
     @FXML
@@ -60,28 +67,53 @@ public class JuegoVistaController implements Initializable {
     @FXML
     private Button botonFicha100;
 
+    //Ficha
     private Ficha ficha = new Ficha();
-    private int resultado;
-    @FXML
-    private ImageView campoImagenCupier;
-
+    private int resultado; //actualiza el efectivo
+    
+    //Paquete
     private PaqueteDeCartas paquete;
 
+    
+    //ImageView Jugador
     @FXML
     private ImageView campoImagenJugador;
     @FXML
-    private ImageView campoJugador3;
+    private ImageView campoImagenJugador2;
     @FXML
-    private ImageView campoJugador2;
+    private ImageView campoImagenJugador3;
+    @FXML
+    private ImageView campoImagenJugador4;
     
-    //RUTA CARTAS al Azar
+    //ImageView Cupier
+    @FXML
+    private ImageView campoImagenCupier;
+    @FXML
+    private ImageView campoImagenCupier2;
+    @FXML
+    private ImageView campoImagenCupier3;
+    @FXML
+    private ImageView campoImagenCupier4;
+    
+    //RUTA CARTAS al Azar Jugador
+    String imagenJugador;
+    String imagenJugador2;
+    String imagenJugador3;
+    String imagenJugador4;
     
     
-
-
-    /**
-     * Initializes the controller class.
-     */
+    //RUTA CARTAS al Azar Cupier
+    String imagenCupier;
+    String imagenCupier2;
+    String imagenCupier3;
+    String imagenCupier4;
+    
+    private Image imagenInicial;
+    private Image imagenVacia;
+    
+    
+    
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         campoEfectivo.setText(ficha.getEfectivo() + "");
@@ -94,21 +126,8 @@ public class JuegoVistaController implements Initializable {
     }
 
     @FXML
-    private void salirDelJuego() {
-        System.exit(0);
-    }
-
-    @FXML
-    private void mostrarIntegrantes() {
-        JOptionPane ventana = new JOptionPane();
-        ventana.showMessageDialog(null, "Juan Manuel Hoyos Contreras" + "\n"
-                + "Sebastian Cifuentes Florez" + "\n"
-                + "Emanuel Benjumea Bejarano", "Quienes somos", JOptionPane.INFORMATION_MESSAGE);
-
-    }
-
-    @FXML
     private void Repartir() {
+        //Deshabilitada Fichas al repartir
         botonFicha1.setDisable(true);
         botonFicha5.setDisable(true);
         botonFicha10.setDisable(true);
@@ -116,29 +135,57 @@ public class JuegoVistaController implements Initializable {
         botonFicha50.setDisable(true);
         botonFicha100.setDisable(true);
         
+        botonRepartir.setDisable(true);
+        botonOtraCarta.setDisable(false);
+        botonSeguro.setDisable(false);
+        imagenVacia = campoImagenCupier4.getImage();
+        
+        
         String cara = "/Imagenes Cartas/"+obtenerLetra();
         String cara2 = "/Imagenes Cartas/"+obtenerLetra();
         String cara3 = "/Imagenes Cartas/"+obtenerLetra();
         Image imagen1 = new Image(cara);
         Image imagen2 = new Image(cara2);
         Image imagen3 = new Image(cara3);
-        campoImagenJugador.setImage(imagen1);
-        campoJugador2.setImage(imagen2);
-        campoJugador3.setImage(imagen3);
-        
-        
+        campoImagenJugador.setImage(imagen1);   
+        campoImagenJugador2.setImage(imagen2);
+        campoImagenCupier2.setImage(imagen3);
     }
 
     @FXML
     private void otraCarta() {
+        imagenJugador3 = "/Imagenes Cartas/"+obtenerLetra();
+        Image imagen3 = new Image(imagenJugador3);
+        campoImagenJugador3.setImage(imagen3);
     }
 
     @FXML
     private void seguro() {
+        imagenCupier3 = "/Imagenes Cartas/"+obtenerLetra();
+        imagenCupier = "/Imagenes Cartas/"+obtenerLetra();
+        imagenInicial = new Image(imagenCupier);
+        campoImagenCupier.setImage(imagenInicial);
+        botonOtraCarta.setDisable(true);
+        Image imagen3 = new Image(imagenCupier3);
+        campoImagenCupier3.setImage(imagen3);
     }
 
     @FXML
     private void otroJuego() {
+        imagenInicial = new Image("/Imagenes Cartas/0.png");
+        botonRepartir.setDisable(false);
+        botonSeguro.setDisable(true);
+        campoImagenCupier.setImage(imagenInicial);
+        campoImagenJugador.setImage(imagenInicial);
+        campoImagenJugador2.setImage(imagenVacia);
+        campoImagenJugador3.setImage(imagenVacia);
+        campoImagenJugador4.setImage(imagenVacia);
+        campoImagenCupier2.setImage(imagenVacia);
+        campoImagenCupier3.setImage(imagenVacia);
+        campoImagenCupier4.setImage(imagenVacia);
+        
+        
+        
     }
 
     private int quitarDinero(Ficha f, int suma) {
@@ -273,6 +320,20 @@ public class JuegoVistaController implements Initializable {
                 break;
         }
         return variable;
+    }
+    
+    @FXML
+    private void salirDelJuego() {
+        System.exit(0);
+    }
+
+    @FXML
+    private void mostrarIntegrantes() {
+        JOptionPane ventana = new JOptionPane();
+        ventana.showMessageDialog(null, "Juan Manuel Hoyos Contreras" + "\n"
+                + "Sebastian Cifuentes Florez" + "\n"
+                + "Emanuel Benjumea Bejarano", "Quienes somos", JOptionPane.INFORMATION_MESSAGE);
+
     }
 
 }
