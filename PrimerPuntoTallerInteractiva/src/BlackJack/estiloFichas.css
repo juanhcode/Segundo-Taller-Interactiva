@@ -13,6 +13,7 @@ and open the template in the editor.
 .botonFicha25 {-fx-background-image:url("/fichas/Ficha25.png")}
 .botonFicha50 {-fx-background-image:url("/fichas/Ficha50.png")}
 .botonFicha100 {-fx-background-image:url("/fichas/Ficha100.png")}
+.AnchorFondo {-fx-background-image:url("/fichas/fondo.jpg")}
 
 
 
