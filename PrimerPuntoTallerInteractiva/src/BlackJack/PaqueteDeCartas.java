@@ -44,13 +44,6 @@ public class PaqueteDeCartas {
         return variable;
     }
     
-    public void darVarlorCarta(){
-        String carta = obtenerLetra();
-        if(carta.equals("2C.png") || carta.equals("2D.png") || carta.equals("2P.png") || carta.equals("2T.png")){
-            cartaActual = 2;
-        }
-        
-    }
 
     public Carta[] getPaquete() {
         return paquete;
