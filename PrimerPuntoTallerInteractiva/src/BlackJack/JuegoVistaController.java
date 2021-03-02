@@ -29,7 +29,7 @@ public class JuegoVistaController implements Initializable {
 
     @FXML
     private AnchorPane AnchorFondo;
-    
+
     //Menu
     @FXML
     private MenuBar menuBar;
@@ -120,25 +120,23 @@ public class JuegoVistaController implements Initializable {
     int valorActualCarta2;
     int valorActualCarta3;
     int valorActualCarta4;
-    
+
     //Valor de la Carta Cupier
     int valorActualCartaCupier1;
     int valorActualCartaCupier2;
     int valorActualCartaCupier3;
     int valorActualCartaCupier4;
-    
+
     //Cartas Cambiadas
     Image carta1;
     Image cartaCupier;
-    
+
     private int cartaActual;
     @FXML
     private Label campoMensajeGanadorOperdedor;
     private final String mensajeHacerApuesta = "***Haga su apuesta***";
     private final String mensajeGanador = "***Usted Gana***";
     private final String mensajePerdedor = "***Usted Pierde***";
-    
-    
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -169,9 +167,6 @@ public class JuegoVistaController implements Initializable {
         botonOtraCarta.setDisable(false);
         botonSeguro.setDisable(false);
         asignarCartasAJugadorYCupier();
-        
-        
-        
 
     }
 
@@ -184,7 +179,7 @@ public class JuegoVistaController implements Initializable {
         carta1 = new Image(imagenJugador3);
         campoImagenJugador3.setImage(carta1);
         puntaje += valorActualCarta3;
-        campoPuntajeJugador.setText(puntaje+"");
+        campoPuntajeJugador.setText(puntaje + "");
     }
 
     @FXML
@@ -211,7 +206,7 @@ public class JuegoVistaController implements Initializable {
         campoImagenCupier2.setImage(imagenVacia);
         campoImagenCupier3.setImage(imagenVacia);
         campoImagenCupier4.setImage(imagenVacia);
-        
+
         //habilitar fichas
         botonFicha1.setDisable(false);
         botonFicha5.setDisable(false);
@@ -219,7 +214,7 @@ public class JuegoVistaController implements Initializable {
         botonFicha25.setDisable(false);
         botonFicha50.setDisable(false);
         botonFicha100.setDisable(false);
-        
+
         //Deshabilitar Otra carta
         botonOtraCarta.setDisable(true);
         //Deshabilitar Repartir
@@ -392,44 +387,44 @@ public class JuegoVistaController implements Initializable {
 
     private void asignarCartasAJugadorYCupier() {
 
+        String as[] = {"1C.png", "1D.png", "1P.png", "1T.png"};
+        String valorJDK[] = {"10C.png", "10D.png", "10P.png", "10T.png","11C.png", "11D.png", "11P.png", 
+                             "11T.png","12C.png", "12D.png", "12P.png", "12T.png",
+                             "13C.png", "13D.png", "13P.png", "13T.png"};
+        int contador = 0;
         //Se agrega la primera carta al jugador
+        //"/Imagenes Cartas/1C.png"
         imagenJugador = paquete.barajar();
-        System.out.println("Carta Jugador"+imagenJugador);
-        valorActualCarta1 = paquete.getCartaActual(); //Se obtiene el valor de la carta
-        System.out.println("Valor Carta"+valorActualCarta1);
+        System.out.println("Carta Jugador" + imagenJugador);
+        if (imagenJugador.contains(as[contador]) && (imagenJugador2.contains(valorJDK[contador]))) {
+            valorActualCarta1 = 11;
+        } else {
+            valorActualCarta1 = paquete.getCartaActual(); //Se obtiene el valor de la carta
+        }
+        System.out.println("Valor Carta" + valorActualCarta1);
         carta1 = new Image(imagenJugador);
         campoImagenJugador.setImage(carta1);
 
         //Se agrega la segunda carta al Cupier
         imagenCupier2 = paquete.barajar();
-        System.out.println("Carta Cupier"+imagenCupier2);
+        System.out.println("Carta Cupier" + imagenCupier2);
         valorActualCartaCupier2 = paquete.getCartaActual(); //Se obtiene el valor de la carta
-        System.out.println("Valor Carta"+valorActualCartaCupier2);
+        System.out.println("Valor Carta" + valorActualCartaCupier2);
         cartaCupier = new Image(imagenCupier2);
         campoImagenCupier2.setImage(cartaCupier);
-        campoPuntajeCupier.setText(valorActualCartaCupier2+"");
-        
-        
+        campoPuntajeCupier.setText(valorActualCartaCupier2 + "");
+
         //Se agrega la tercera carta al Jugador
         imagenJugador2 = paquete.barajar();
-        System.out.println("Carta Jugador"+imagenJugador2);
-        carta1 = new Image(imagenJugador2);
+        System.out.println("Carta Jugador" + imagenJugador2);
         valorActualCarta2 = paquete.getCartaActual();
-        System.out.println("Valor Carta"+valorActualCarta2);
+        carta1 = new Image(imagenJugador2);
+        System.out.println("Valor Carta" + valorActualCarta2);
         campoImagenJugador2.setImage(carta1);
-        campoPuntajeJugador.setText(valorActualCarta2 + "");
-        
+        //campoPuntajeJugador.setText(valorActualCarta2 + "");
+
         //Suma De las dos cartas
         puntaje = valorActualCarta1 + valorActualCarta2;
         campoPuntajeJugador.setText(puntaje + "");
-        
-        String as [] = {"1C.png","1D.png"};
-        int contador=0;
-        if(imagenJugador.contains(as[contador])){
-            contador++;
-        }
-        if(imagenJugador.equals("1C.png") || (imagenJugador.equals("1D.png") || (imagenJugador.equals("1P.png") || (imagenJugador.equals("1T.png"))))){
-            
-        }
     }
 }

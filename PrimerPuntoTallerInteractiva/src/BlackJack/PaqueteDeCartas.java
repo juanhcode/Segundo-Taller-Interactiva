@@ -59,7 +59,7 @@ public class PaqueteDeCartas {
         } else if (variable.equals("9C.png") || (variable.equals("9D.png") || (variable.equals("9P.png") || (variable.equals("9T.png"))))) {
             cartaActual = 9;
         } else if (variable.equals("1C.png") || (variable.equals("1D.png") || (variable.equals("1P.png") || (variable.equals("1T.png"))))) {
-            cartaActual = 0;
+            cartaActual = 1;
         } else {
             cartaActual = 10;
         }
@@ -85,8 +85,8 @@ public class PaqueteDeCartas {
         return cartaActual;
     }
 
-    public void setCartaActual(int cartaActual) {
-        this.cartaActual = cartaActual;
+    public int setCartaActual(int cartaActual) {
+        return this.cartaActual = cartaActual;
     }
 
     public String getNumerosAleatorios() {
