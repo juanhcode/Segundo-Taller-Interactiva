@@ -1,6 +1,8 @@
 package BlackJack;
 
 import java.util.Random;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 public class PaqueteDeCartas {
@@ -67,12 +69,19 @@ public class PaqueteDeCartas {
         return "/Imagenes Cartas/" + variable;
     }
 
-    /*
-    public int valorAs() {
-        
+    public void valorAs() {
+        Icon carta = new ImageIcon(getClass().getResource("/option1/1P.png"));
+
+        String[] botones = {"1", "11"};
+        int ventana = JOptionPane.showOptionDialog(null, "Que valor desea dar a la carta:", "carta", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, carta, botones, botones[0]);
+
+        if (ventana == 0) {
+            System.out.println(Integer.parseInt("1") + 2);
+        } else if (ventana == 1) {
+            System.out.println(Integer.parseInt("11") + 11);
+        }
 
     }
-    */
 
     public Carta[] getPaquete() {
         return paquete;
@@ -125,7 +134,5 @@ public class PaqueteDeCartas {
     public void setCartaAs(int cartaAs) {
         this.cartaAs = cartaAs;
     }
-    
-    
 
 }
