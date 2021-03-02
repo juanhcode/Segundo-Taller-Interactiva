@@ -11,6 +11,7 @@ public class PaqueteDeCartas {
     private String numerosAleatorios;
     private int letra;
     private int suma;
+    private int cartaAs;
 
     public PaqueteDeCartas() {
 
@@ -59,7 +60,7 @@ public class PaqueteDeCartas {
         } else if (variable.equals("9C.png") || (variable.equals("9D.png") || (variable.equals("9P.png") || (variable.equals("9T.png"))))) {
             cartaActual = 9;
         } else if (variable.equals("1C.png") || (variable.equals("1D.png") || (variable.equals("1P.png") || (variable.equals("1T.png"))))) {
-            cartaActual = 1;
+            cartaActual = 0;
         } else {
             cartaActual = 10;
         }
@@ -116,5 +117,15 @@ public class PaqueteDeCartas {
     public String cartaObtenida() {
         return barajar();
     }
+
+    public int getCartaAs() {
+        return cartaAs;
+    }
+
+    public void setCartaAs(int cartaAs) {
+        this.cartaAs = cartaAs;
+    }
+    
+    
 
 }

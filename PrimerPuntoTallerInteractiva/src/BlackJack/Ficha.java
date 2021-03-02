@@ -16,7 +16,7 @@ public class Ficha {
     private int ficha25 = 25;
     private int ficha50 = 50;
     private int ficha100 = 100;
-    private int efectivo  = 1500;
+    private int efectivo = 1500;
     
     public Ficha(){
         

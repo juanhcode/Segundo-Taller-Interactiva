@@ -8,6 +8,7 @@ package BlackJack;
 import java.net.URL;
 import java.util.Random;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -114,6 +115,7 @@ public class JuegoVistaController implements Initializable {
 
     //Puntaje
     private int puntaje;
+    private int puntajeCupier;
 
     //Valor de la Carta Jugador
     int valorActualCarta1;
@@ -140,7 +142,7 @@ public class JuegoVistaController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        campoEfectivo.setText(ficha.getEfectivo() + "");
+        campoEfectivo.setText(0+"");
         campoApuesta.setText(0 + "");
         botonRepartir.setDisable(true);
         botonOtraCarta.setDisable(true);
@@ -173,19 +175,48 @@ public class JuegoVistaController implements Initializable {
     @FXML
     private void otraCarta() {
         imagenJugador3 = paquete.barajar();
-        System.out.println(imagenJugador3);
         valorActualCarta3 = paquete.getCartaActual();
-        System.out.println(valorActualCarta3);
         carta1 = new Image(imagenJugador3);
         campoImagenJugador3.setImage(carta1);
         puntaje += valorActualCarta3;
         campoPuntajeJugador.setText(puntaje + "");
+        if (puntaje == 21) {
+            botonOtraCarta.setDisable(true);
+            campoMensajeGanadorOperdedor.setText(mensajeGanador);
+            /*
+            String dinero = campoEfectivo.getText();
+            String efectivoDisponible = campoApuesta.getText();
+            int puntajeGanado;
+            int dineroGanado;
+            int valorApuesta;
+            puntajeGanado = Integer.parseInt(dinero);
+            valorApuesta = Integer.parseInt(campoApuesta.getText());
+            dineroGanado = puntajeGanado + valorApuesta;
+            campoEfectivo.setText(dineroGanado+"");
+            */
+        }
+        if (puntaje > 21) {
+            campoMensajeGanadorOperdedor.setText(mensajePerdedor);
+            //Cambia la carta tapada del cupier a tener valor
+            imagenCupier = paquete.barajar();
+            valorActualCartaCupier1 = paquete.getCartaActual();
+            cartaCupier = new Image(imagenCupier);
+            campoImagenCupier.setImage(cartaCupier);
+
+            //Suma
+            puntajeCupier += valorActualCartaCupier1;
+            campoPuntajeCupier.setText(puntajeCupier + "");
+            campoApuesta.setText(0 + "");
+            botonOtraCarta.setDisable(true);
+            botonSeguro.setDisable(true);
+
+        }
     }
 
     @FXML
     private void seguro() {
-        imagenCupier3 = "/Imagenes Cartas/" + obtenerLetra();
-        imagenCupier = "/Imagenes Cartas/" + obtenerLetra();
+        //imagenCupier3 = "/Imagenes Cartas/" + obtenerLetra();
+        //imagenCupier = "/Imagenes Cartas/" + obtenerLetra();
         imagenInicial = new Image(imagenCupier);
         campoImagenCupier.setImage(imagenInicial);
         botonOtraCarta.setDisable(true);
@@ -219,10 +250,24 @@ public class JuegoVistaController implements Initializable {
         botonOtraCarta.setDisable(true);
         //Deshabilitar Repartir
         botonRepartir.setDisable(true);
+        
+        //Actualizar Mensaje
+        campoMensajeGanadorOperdedor.setText(mensajeHacerApuesta);
+        
+        //Actualizar Apuesta,puntaje Jugador y cupier
+        campoApuesta.setText(0+"");
+        campoPuntajeJugador.setText(0+"");
+        campoPuntajeCupier.setText(0+"");
+        
+        String cero = campoEfectivo.getText();
+        if(cero.equals(0+"")){
+            campoEfectivo.setText(ficha.getEfectivo()+"");
+        }
     }
 
     private int quitarDinero(Ficha f, int suma) {
         int resultado = f.getEfectivo() - suma;
+        System.out.println("Esta es la resta=" + resultado);
         return resultado;
     }
 
@@ -337,89 +382,32 @@ public class JuegoVistaController implements Initializable {
 
     }
 
-    public String barajar() {
-        Random numeros = new Random();
-        int numero = 1 + numeros.nextInt(13);
-        String hola;
-        hola = numero + "";
-        return hola;
-    }
-
-    public String obtenerLetra() {
-        Random aleatorios = new Random();
-        int numero = 1 + aleatorios.nextInt(4);
-        String variable = "";
-        switch (numero) {
-            case 1:
-                variable = barajar() + "C" + ".png";
-                break;
-            case 2:
-                variable = barajar() + "D" + ".png";
-                break;
-            case 3:
-                variable = barajar() + "T" + ".png";
-                break;
-            case 4:
-                variable = barajar() + "P" + ".png";
-                break;
-        }
-        if (variable.equals("2C.png") || (variable.equals("2D.png") || (variable.equals("2P.png") || (variable.equals("2T.png"))))) {
-            cartaActual = 2;
-        } else if (variable.equals("3C.png") || (variable.equals("3D.png") || (variable.equals("3P.png") || (variable.equals("3T.png"))))) {
-            cartaActual = 3;
-        } else if (variable.equals("4C.png") || (variable.equals("4D.png") || (variable.equals("4P.png") || (variable.equals("4T.png"))))) {
-            cartaActual = 4;
-        } else if (variable.equals("5C.png") || (variable.equals("5D.png") || (variable.equals("5P.png") || (variable.equals("5T.png"))))) {
-            cartaActual = 5;
-        } else if (variable.equals("6C.png") || (variable.equals("6D.png") || (variable.equals("6P.png") || (variable.equals("6T.png"))))) {
-            cartaActual = 6;
-        } else if (variable.equals("7C.png") || (variable.equals("7D.png") || (variable.equals("7P.png") || (variable.equals("7T.png"))))) {
-            cartaActual = 7;
-        } else if (variable.equals("8C.png") || (variable.equals("8D.png") || (variable.equals("8P.png") || (variable.equals("8T.png"))))) {
-            cartaActual = 8;
-        } else if (variable.equals("9C.png") || (variable.equals("9D.png") || (variable.equals("9P.png") || (variable.equals("9T.png"))))) {
-            cartaActual = 9;
-        } else {
-            cartaActual = 10;
-        }
-        return variable;
-    }
-
     private void asignarCartasAJugadorYCupier() {
 
-        String as[] = {"1C.png", "1D.png", "1P.png", "1T.png"};
-        String valorJDK[] = {"10C.png", "10D.png", "10P.png", "10T.png","11C.png", "11D.png", "11P.png", 
-                             "11T.png","12C.png", "12D.png", "12P.png", "12T.png",
-                             "13C.png", "13D.png", "13P.png", "13T.png"};
-        int contador = 0;
         //Se agrega la primera carta al jugador
-        //"/Imagenes Cartas/1C.png"
         imagenJugador = paquete.barajar();
-        System.out.println("Carta Jugador" + imagenJugador);
-        if (imagenJugador.contains(as[contador]) && (imagenJugador2.contains(valorJDK[contador]))) {
-            valorActualCarta1 = 11;
-        } else {
-            valorActualCarta1 = paquete.getCartaActual(); //Se obtiene el valor de la carta
-        }
-        System.out.println("Valor Carta" + valorActualCarta1);
+        //System.out.println("Carta Jugador" + imagenJugador);
+        valorActualCarta1 = paquete.getCartaActual(); //Se obtiene el valor de la carta
+        //System.out.println("Valor Carta" + valorActualCarta1);
         carta1 = new Image(imagenJugador);
         campoImagenJugador.setImage(carta1);
 
         //Se agrega la segunda carta al Cupier
         imagenCupier2 = paquete.barajar();
-        System.out.println("Carta Cupier" + imagenCupier2);
+        //System.out.println("Carta Cupier" + imagenCupier2);
         valorActualCartaCupier2 = paquete.getCartaActual(); //Se obtiene el valor de la carta
-        System.out.println("Valor Carta" + valorActualCartaCupier2);
+        puntajeCupier = valorActualCartaCupier2;
+        //System.out.println("Valor Carta" + valorActualCartaCupier2);
         cartaCupier = new Image(imagenCupier2);
         campoImagenCupier2.setImage(cartaCupier);
         campoPuntajeCupier.setText(valorActualCartaCupier2 + "");
 
         //Se agrega la tercera carta al Jugador
         imagenJugador2 = paquete.barajar();
-        System.out.println("Carta Jugador" + imagenJugador2);
+        //System.out.println("Carta Jugador" + imagenJugador2);
         valorActualCarta2 = paquete.getCartaActual();
         carta1 = new Image(imagenJugador2);
-        System.out.println("Valor Carta" + valorActualCarta2);
+        //System.out.println("Valor Carta" + valorActualCarta2);
         campoImagenJugador2.setImage(carta1);
         //campoPuntajeJugador.setText(valorActualCarta2 + "");
 
