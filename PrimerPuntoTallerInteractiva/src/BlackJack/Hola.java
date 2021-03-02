@@ -17,9 +17,7 @@ public class Hola {
     public static void main(String[] args) {
 
         
-        PaqueteDeCartas paquete = new PaqueteDeCartas();
-        
-        
+        PaqueteDeCartas paquete = new PaqueteDeCartas();        
         String carta = paquete.barajar();
         int valorCarta = paquete.getCartaActual();
         System.out.println(carta);

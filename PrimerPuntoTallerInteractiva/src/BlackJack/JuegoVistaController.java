@@ -11,6 +11,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
@@ -131,6 +132,13 @@ public class JuegoVistaController implements Initializable {
     Image cartaCupier;
     
     private int cartaActual;
+    @FXML
+    private Label campoMensajeGanadorOperdedor;
+    private final String mensajeHacerApuesta = "***Haga su apuesta***";
+    private final String mensajeGanador = "***Usted Gana***";
+    private final String mensajePerdedor = "***Usted Pierde***";
+    
+    
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -161,6 +169,9 @@ public class JuegoVistaController implements Initializable {
         botonOtraCarta.setDisable(false);
         botonSeguro.setDisable(false);
         asignarCartasAJugadorYCupier();
+        
+        
+        
 
     }
 
@@ -383,32 +394,42 @@ public class JuegoVistaController implements Initializable {
 
         //Se agrega la primera carta al jugador
         imagenJugador = paquete.barajar();
-        System.out.println(imagenJugador);
+        System.out.println("Carta Jugador"+imagenJugador);
         valorActualCarta1 = paquete.getCartaActual(); //Se obtiene el valor de la carta
-        System.out.println(valorActualCarta1);
+        System.out.println("Valor Carta"+valorActualCarta1);
         carta1 = new Image(imagenJugador);
         campoImagenJugador.setImage(carta1);
 
-        //Se agrega la segunda carta al jugador
+        //Se agrega la segunda carta al Cupier
+        imagenCupier2 = paquete.barajar();
+        System.out.println("Carta Cupier"+imagenCupier2);
+        valorActualCartaCupier2 = paquete.getCartaActual(); //Se obtiene el valor de la carta
+        System.out.println("Valor Carta"+valorActualCartaCupier2);
+        cartaCupier = new Image(imagenCupier2);
+        campoImagenCupier2.setImage(cartaCupier);
+        campoPuntajeCupier.setText(valorActualCartaCupier2+"");
+        
+        
+        //Se agrega la tercera carta al Jugador
         imagenJugador2 = paquete.barajar();
-        System.out.println(imagenJugador2);
-        valorActualCarta2 = paquete.getCartaActual(); //Se obtiene el valor de la carta
-        System.out.println(valorActualCarta2);
+        System.out.println("Carta Jugador"+imagenJugador2);
         carta1 = new Image(imagenJugador2);
+        valorActualCarta2 = paquete.getCartaActual();
+        System.out.println("Valor Carta"+valorActualCarta2);
         campoImagenJugador2.setImage(carta1);
-
+        campoPuntajeJugador.setText(valorActualCarta2 + "");
+        
         //Suma De las dos cartas
         puntaje = valorActualCarta1 + valorActualCarta2;
         campoPuntajeJugador.setText(puntaje + "");
-
         
-        //Se agrega la segunda carta al Cupier
-        imagenCupier2 = paquete.barajar();
-        cartaCupier = new Image(imagenCupier2);
-        System.out.println(imagenCupier2);
-        valorActualCartaCupier2 = paquete.getCartaActual();
-        System.out.println(valorActualCartaCupier2);
-        campoImagenCupier2.setImage(cartaCupier);
-        campoPuntajeCupier.setText(valorActualCartaCupier2 + "");
+        String as [] = {"1C.png","1D.png"};
+        int contador=0;
+        if(imagenJugador.contains(as[contador])){
+            contador++;
+        }
+        if(imagenJugador.equals("1C.png") || (imagenJugador.equals("1D.png") || (imagenJugador.equals("1P.png") || (imagenJugador.equals("1T.png"))))){
+            
+        }
     }
 }

@@ -110,6 +110,7 @@ public class Galeria_imagenesController implements Initializable {
     @FXML
     private void salir() {
         System.exit(0);
+        
     }
 
     @FXML

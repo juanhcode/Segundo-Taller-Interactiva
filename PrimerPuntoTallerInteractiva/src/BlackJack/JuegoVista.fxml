@@ -62,7 +62,7 @@
             </ImageView>
             <TextField fx:id="campoPuntajeJugador" editable="false" layoutX="302.0" layoutY="318.0" prefHeight="34.0" prefWidth="30.0" />
             <TextField fx:id="campoPuntajeCupier" editable="false" layoutX="694.0" layoutY="318.0" prefHeight="34.0" prefWidth="30.0" />
-            <Label layoutX="372.0" layoutY="371.0" text="***Haga su apuesta***" textFill="WHITE">
+            <Label fx:id="campoMensajeGanadorOperdedor" layoutX="372.0" layoutY="371.0" text="***Haga su apuesta***" textFill="WHITE">
                <font>
                   <Font name="Arial Bold Italic" size="17.0" />
                </font>

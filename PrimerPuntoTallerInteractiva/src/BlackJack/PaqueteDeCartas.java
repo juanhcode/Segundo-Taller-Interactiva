@@ -1,6 +1,7 @@
 package BlackJack;
 
 import java.util.Random;
+import javax.swing.JOptionPane;
 
 public class PaqueteDeCartas {
 
@@ -57,11 +58,20 @@ public class PaqueteDeCartas {
             cartaActual = 8;
         } else if (variable.equals("9C.png") || (variable.equals("9D.png") || (variable.equals("9P.png") || (variable.equals("9T.png"))))) {
             cartaActual = 9;
+        } else if (variable.equals("1C.png") || (variable.equals("1D.png") || (variable.equals("1P.png") || (variable.equals("1T.png"))))) {
+            cartaActual = 0;
         } else {
             cartaActual = 10;
         }
-        return "/Imagenes Cartas/"+variable;
+        return "/Imagenes Cartas/" + variable;
     }
+
+    /*
+    public int valorAs() {
+        
+
+    }
+    */
 
     public Carta[] getPaquete() {
         return paquete;
@@ -102,8 +112,8 @@ public class PaqueteDeCartas {
     public void setSuma(int suma) {
         this.suma = suma;
     }
-    
-    public String cartaObtenida(){
+
+    public String cartaObtenida() {
         return barajar();
     }
 
