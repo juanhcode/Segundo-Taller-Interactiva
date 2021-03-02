@@ -142,7 +142,6 @@ public class JuegoVistaController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        campoEfectivo.setText(0+"");
         campoApuesta.setText(0 + "");
         botonRepartir.setDisable(true);
         botonOtraCarta.setDisable(true);
@@ -215,13 +214,6 @@ public class JuegoVistaController implements Initializable {
 
     @FXML
     private void seguro() {
-        //imagenCupier3 = "/Imagenes Cartas/" + obtenerLetra();
-        //imagenCupier = "/Imagenes Cartas/" + obtenerLetra();
-        imagenInicial = new Image(imagenCupier);
-        campoImagenCupier.setImage(imagenInicial);
-        botonOtraCarta.setDisable(true);
-        Image imagen3 = new Image(imagenCupier3);
-        campoImagenCupier3.setImage(imagen3);
     }
 
     @FXML
@@ -258,11 +250,6 @@ public class JuegoVistaController implements Initializable {
         campoApuesta.setText(0+"");
         campoPuntajeJugador.setText(0+"");
         campoPuntajeCupier.setText(0+"");
-        
-        String cero = campoEfectivo.getText();
-        if(cero.equals(0+"")){
-            campoEfectivo.setText(ficha.getEfectivo()+"");
-        }
     }
 
     private int quitarDinero(Ficha f, int suma) {
@@ -275,6 +262,7 @@ public class JuegoVistaController implements Initializable {
     private void obtenerValor1() {
         botonRepartir.setDisable(false);
         int conver = Integer.parseInt(campoEfectivo.getText());
+        System.out.println(conver);
         int texto = Integer.parseInt(campoApuesta.getText());
         int suma = ficha.getFicha1() + texto;
         if (conver > 0) {
