@@ -6,9 +6,7 @@
 package BlackJack;
 
 import java.net.URL;
-import java.util.Random;
 import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -142,6 +140,7 @@ public class JuegoVistaController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        campoEfectivo.setText(ficha.getEfectivo() + "");
         campoApuesta.setText(0 + "");
         botonRepartir.setDisable(true);
         botonOtraCarta.setDisable(true);
@@ -192,7 +191,7 @@ public class JuegoVistaController implements Initializable {
             valorApuesta = Integer.parseInt(campoApuesta.getText());
             dineroGanado = puntajeGanado + valorApuesta;
             campoEfectivo.setText(dineroGanado+"");
-            */
+             */
         }
         if (puntaje > 21) {
             campoMensajeGanadorOperdedor.setText(mensajePerdedor);
@@ -242,34 +241,34 @@ public class JuegoVistaController implements Initializable {
         botonOtraCarta.setDisable(true);
         //Deshabilitar Repartir
         botonRepartir.setDisable(true);
-        
+
         //Actualizar Mensaje
         campoMensajeGanadorOperdedor.setText(mensajeHacerApuesta);
-        
+
         //Actualizar Apuesta,puntaje Jugador y cupier
-        campoApuesta.setText(0+"");
-        campoPuntajeJugador.setText(0+"");
-        campoPuntajeCupier.setText(0+"");
+        campoApuesta.setText(0 + "");
+        campoPuntajeJugador.setText(0 + "");
+        campoPuntajeCupier.setText(0 + "");
+        System.out.println(resultado);
     }
 
-    private int quitarDinero(Ficha f, int suma) {
-        int resultado = f.getEfectivo() - suma;
-        System.out.println("Esta es la resta=" + resultado);
+    private int quitarDinero(int dinero, int suma) {
+        int resultado = dinero - suma;
         return resultado;
     }
 
     @FXML
     private void obtenerValor1() {
         botonRepartir.setDisable(false);
-        int conver = Integer.parseInt(campoEfectivo.getText());
-        System.out.println(conver);
-        int texto = Integer.parseInt(campoApuesta.getText());
-        int suma = ficha.getFicha1() + texto;
-        if (conver > 0) {
+        int dinero = Integer.parseInt(campoEfectivo.getText());
+        int apuesta = Integer.parseInt(campoApuesta.getText());
+        int suma = apuesta + ficha.getFicha1();
+        if(dinero > 0){
             campoApuesta.setText(suma + "");
-            resultado = quitarDinero(ficha, suma);
+            this.resultado = dinero - ficha.getFicha1();
+            System.out.println(dinero);
             campoEfectivo.setText(resultado + "");
-        } else {
+        }else{
             campoEfectivo.setText("0");
             JOptionPane.showMessageDialog(null, "No puede Apostar mas", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
@@ -278,14 +277,15 @@ public class JuegoVistaController implements Initializable {
     @FXML
     private void obtenerValor5() {
         botonRepartir.setDisable(false);
-        int conver = Integer.parseInt(campoEfectivo.getText());
-        int texto = Integer.parseInt(campoApuesta.getText());
-        int suma = ficha.getFicha5() + texto;
-        if (conver > 0) {
+        int dinero = Integer.parseInt(campoEfectivo.getText());
+        int apuesta = Integer.parseInt(campoApuesta.getText());
+        int suma = apuesta + ficha.getFicha5();
+        if(dinero > 0){
             campoApuesta.setText(suma + "");
-            resultado = quitarDinero(ficha, suma);
+            this.resultado = dinero - ficha.getFicha5();
+            System.out.println(dinero);
             campoEfectivo.setText(resultado + "");
-        } else {
+        }else{
             campoEfectivo.setText("0");
             JOptionPane.showMessageDialog(null, "No puede Apostar mas", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
@@ -294,14 +294,15 @@ public class JuegoVistaController implements Initializable {
     @FXML
     private void obtenerValor10() {
         botonRepartir.setDisable(false);
-        int conver = Integer.parseInt(campoEfectivo.getText());
-        int texto = Integer.parseInt(campoApuesta.getText());
-        int suma = ficha.getFicha10() + texto;
-        if (conver > 0) {
+        int dinero = Integer.parseInt(campoEfectivo.getText());
+        int apuesta = Integer.parseInt(campoApuesta.getText());
+        int suma = apuesta + ficha.getFicha10();
+        if(dinero > 0){
             campoApuesta.setText(suma + "");
-            resultado = quitarDinero(ficha, suma);
+            this.resultado = dinero - ficha.getFicha10();
+            System.out.println(dinero);
             campoEfectivo.setText(resultado + "");
-        } else {
+        }else{
             campoEfectivo.setText("0");
             JOptionPane.showMessageDialog(null, "No puede Apostar mas", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
@@ -310,14 +311,15 @@ public class JuegoVistaController implements Initializable {
     @FXML
     private void obtenerValor25() {
         botonRepartir.setDisable(false);
-        int conver = Integer.parseInt(campoEfectivo.getText());
-        int texto = Integer.parseInt(campoApuesta.getText());
-        int suma = ficha.getFicha25() + texto;
-        if (conver > 0) {
+        int dinero = Integer.parseInt(campoEfectivo.getText());
+        int apuesta = Integer.parseInt(campoApuesta.getText());
+        int suma = apuesta + ficha.getFicha25();
+        if(dinero > 0){
             campoApuesta.setText(suma + "");
-            resultado = quitarDinero(ficha, suma);
+            this.resultado = dinero - ficha.getFicha25();
+            System.out.println(dinero);
             campoEfectivo.setText(resultado + "");
-        } else {
+        }else{
             campoEfectivo.setText("0");
             JOptionPane.showMessageDialog(null, "No puede Apostar mas", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
@@ -326,14 +328,15 @@ public class JuegoVistaController implements Initializable {
     @FXML
     private void obtenerValor50() {
         botonRepartir.setDisable(false);
-        int conver = Integer.parseInt(campoEfectivo.getText());
-        int texto = Integer.parseInt(campoApuesta.getText());
-        int suma = ficha.getFicha50() + texto;
-        if (conver > 0) {
+        int dinero = Integer.parseInt(campoEfectivo.getText());
+        int apuesta = Integer.parseInt(campoApuesta.getText());
+        int suma = apuesta + ficha.getFicha50();
+        if(dinero > 0){
             campoApuesta.setText(suma + "");
-            resultado = quitarDinero(ficha, suma);
+            this.resultado = dinero - ficha.getFicha50();
+            System.out.println(dinero);
             campoEfectivo.setText(resultado + "");
-        } else {
+        }else{
             campoEfectivo.setText("0");
             JOptionPane.showMessageDialog(null, "No puede Apostar mas", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
@@ -343,14 +346,15 @@ public class JuegoVistaController implements Initializable {
     @FXML
     private void obtenerValor100() {
         botonRepartir.setDisable(false);
-        int conver = Integer.parseInt(campoEfectivo.getText());
-        int texto = Integer.parseInt(campoApuesta.getText());
-        int suma = ficha.getFicha100() + texto;
-        if (conver > 0) {
+        int dinero = Integer.parseInt(campoEfectivo.getText());
+        int apuesta = Integer.parseInt(campoApuesta.getText());
+        int suma = apuesta + ficha.getFicha100();
+        if(dinero > 0){
             campoApuesta.setText(suma + "");
-            resultado = quitarDinero(ficha, suma);
+            this.resultado = dinero - ficha.getFicha100();
+            System.out.println(dinero);
             campoEfectivo.setText(resultado + "");
-        } else {
+        }else{
             campoEfectivo.setText("0");
             JOptionPane.showMessageDialog(null, "No puede Apostar mas", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
