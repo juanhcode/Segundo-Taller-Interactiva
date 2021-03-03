@@ -62,25 +62,26 @@ public class PaqueteDeCartas {
         } else if (variable.equals("9C.png") || (variable.equals("9D.png") || (variable.equals("9P.png") || (variable.equals("9T.png"))))) {
             cartaActual = 9;
         } else if (variable.equals("1C.png") || (variable.equals("1D.png") || (variable.equals("1P.png") || (variable.equals("1T.png"))))) {
-            cartaActual = 0;
+            cartaActual = 1;
         } else {
             cartaActual = 10;
         }
         return "/Imagenes Cartas/" + variable;
     }
 
-    public void valorAs() {
-        Icon carta = new ImageIcon(getClass().getResource("/option1/1P.png"));
-
+    public int valorAs() {
+        Icon carta = new ImageIcon(getClass().getResource("/Imagenes Cartas/1P.png"));
+        
         String[] botones = {"1", "11"};
-        int ventana = JOptionPane.showOptionDialog(null, "Que valor desea dar a la carta:", "carta", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, carta, botones, botones[0]);
-
+        int ventana = JOptionPane.showOptionDialog(null, "¿Que valor desea dar a la carta?", "Juego 21", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, carta, botones, botones[0]);
         if (ventana == 0) {
-            System.out.println(Integer.parseInt("1") + 2);
+            this.cartaActual = 1;
+            System.out.println(cartaActual);
         } else if (ventana == 1) {
-            System.out.println(Integer.parseInt("11") + 11);
+            this.cartaActual = 11;
+            System.out.println(cartaActual);
         }
-
+        return cartaActual;
     }
 
     public Carta[] getPaquete() {

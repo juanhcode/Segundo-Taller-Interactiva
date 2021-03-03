@@ -16,21 +16,17 @@ public class Hola {
      */
     public static void main(String[] args) {
 
-        
+        //comparar con valores de las cartas para el AS y (10 J K Q)
         PaqueteDeCartas paquete = new PaqueteDeCartas();        
-        String carta = paquete.barajar();
-        int valorCarta = paquete.getCartaActual();
-        System.out.println(carta);
-        System.out.println(valorCarta);
-        carta = paquete.barajar();
-        valorCarta = paquete.getCartaActual();
-        System.out.println(carta);
-        System.out.println(valorCarta);
+        //paquete.valorAs();
         
-        /*
-        JuegoVistaController pruebas = new JuegoVistaController();
-        pruebas.Imprimir();
-        */
+        String carta = paquete.barajar();
+        System.out.println(carta);
+        if (carta.equals("/Imagenes Cartas/1C.png") || (carta.equals("/Imagenes Cartas/1D.png") || (carta.equals("/Imagenes Cartas/1P.png") || (carta.equals("/Imagenes Cartas/1T.png"))))){
+            paquete.valorAs();
+        }
+        
+        System.out.println(paquete.getCartaActual());
 
     }
 

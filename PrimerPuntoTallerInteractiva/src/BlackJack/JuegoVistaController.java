@@ -6,6 +6,7 @@
 package BlackJack;
 
 import java.net.URL;
+import java.util.Random;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -172,12 +173,19 @@ public class JuegoVistaController implements Initializable {
 
     @FXML
     private void otraCarta() {
-        imagenJugador3 = paquete.barajar();
+        //imagenJugador3 = "/Imagenes Cartas/1P.png"; PRUEBA PARA EL AS VALOR 1 u 11
+        //valorActualCarta3 = 1;
+        
+        imagenJugador3 = paquete.barajar(); //3C.Png
         valorActualCarta3 = paquete.getCartaActual();
         carta1 = new Image(imagenJugador3);
+        if (valorActualCarta3 == 1) {
+            valorActualCarta3 = paquete.valorAs();
+        }
         campoImagenJugador3.setImage(carta1);
         puntaje += valorActualCarta3;
         campoPuntajeJugador.setText(puntaje + "");
+        
         if (puntaje == 21) {
             botonOtraCarta.setDisable(true);
             campoMensajeGanadorOperdedor.setText(mensajeGanador);
@@ -251,12 +259,11 @@ public class JuegoVistaController implements Initializable {
             campoMensajeGanadorOperdedor.setText(mensajePerdedor);
             botonOtraCarta.setDisable(true);
             botonSeguro.setDisable(true);
-        }else if(puntajeCupier == puntaje){
+        } else if (puntajeCupier == puntaje) {
             campoMensajeGanadorOperdedor.setText("Es un empate");
             botonOtraCarta.setDisable(true);
             botonSeguro.setDisable(true);
-        }
-        else{
+        } else {
             campoMensajeGanadorOperdedor.setText(mensajeGanador);
             botonOtraCarta.setDisable(true);
             botonSeguro.setDisable(true);
@@ -426,9 +433,9 @@ public class JuegoVistaController implements Initializable {
 
         //Se agrega la primera carta al jugador
         imagenJugador = paquete.barajar();
-        //System.out.println("Carta Jugador" + imagenJugador);
+        System.out.println("Primera Carta Jugador" + imagenJugador);
         valorActualCarta1 = paquete.getCartaActual(); //Se obtiene el valor de la carta
-        //System.out.println("Valor Carta" + valorActualCarta1);
+        System.out.println("Valor Carta: " + valorActualCarta1);
         carta1 = new Image(imagenJugador);
         campoImagenJugador.setImage(carta1);
 
@@ -437,17 +444,17 @@ public class JuegoVistaController implements Initializable {
         System.out.println("Carta Segunda Cupier: " + imagenCupier2);
         valorActualCartaCupier2 = paquete.getCartaActual(); //Se obtiene el valor de la carta
         puntajeCupier = valorActualCartaCupier2;
-        System.out.println("Puntaje Segunda Carta: " + valorActualCartaCupier2);
+        System.out.println("Valor Carta: " + valorActualCartaCupier2);
         cartaCupier = new Image(imagenCupier2);
         campoImagenCupier2.setImage(cartaCupier);
         campoPuntajeCupier.setText(valorActualCartaCupier2 + "");
 
         //Se agrega la tercera carta al Jugador
         imagenJugador2 = paquete.barajar();
-        //System.out.println("Carta Jugador" + imagenJugador2);
+        System.out.println("Tercera Carta Jugador" + imagenJugador2);
         valorActualCarta2 = paquete.getCartaActual();
         carta1 = new Image(imagenJugador2);
-        //System.out.println("Valor Carta" + valorActualCarta2);
+        System.out.println("Valor Carta: " + valorActualCarta2);
         campoImagenJugador2.setImage(carta1);
         //campoPuntajeJugador.setText(valorActualCarta2 + "");
 
