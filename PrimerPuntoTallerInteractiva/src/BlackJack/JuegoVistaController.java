@@ -151,7 +151,7 @@ public class JuegoVistaController implements Initializable {
         campoPuntajeJugador.setText(0 + "");
         campoPuntajeCupier.setText(0 + "");
     }
-
+    
     @FXML
     private void Repartir() {
         imagenVacia = campoImagenCupier4.getImage();
@@ -175,11 +175,11 @@ public class JuegoVistaController implements Initializable {
     }
 
     @FXML
-    private void darCarta4() { //BOTON QUE ESTA ENCIMA   
-
+    private void darCarta4() {
+        //imagenJugador3 = "/Imagenes Cartas/1P.png";
+        //valorActualCarta3 = 1;
         //TERCERA CARTA      
         imagenJugador3 = paquete.barajar(); //3C.Png
-        System.out.println("TERCERA CARTA" + imagenJugador3);
         valorActualCarta3 = paquete.getCartaActual();
         carta1 = new Image(imagenJugador3);
         if (valorActualCarta3 == 1) { //VALIDACION SI SALE UN AS
@@ -188,13 +188,13 @@ public class JuegoVistaController implements Initializable {
         campoImagenJugador3.setImage(carta1);
         puntaje += valorActualCarta3;
         campoPuntajeJugador.setText(puntaje + "");
-
+        
         botonCarta4.setDisable(true);
         botonOtraCarta.setDisable(false);
 
         //VALIDACIONES
         if (puntaje == 21) {
-            botonOtraCarta.setDisable(true); //Boton
+            botonOtraCarta.setDisable(true);
             botonCarta4.setDisable(true);
             botonSeguro.setDisable(true);
             campoMensajeGanadorOperdedor.setText(mensajeGanador);
@@ -206,17 +206,8 @@ public class JuegoVistaController implements Initializable {
         }
 
         if (puntaje > 21) {
+            seguro();
             campoMensajeGanadorOperdedor.setText(mensajePerdedor);
-            //Cambia la carta tapada del cupier a tener valor
-            imagenCupier = paquete.barajar();
-            valorActualCartaCupier1 = paquete.getCartaActual();
-            cartaCupier = new Image(imagenCupier);
-            campoImagenCupier.setImage(cartaCupier);
-
-            //Suma
-            puntajeCupier += valorActualCartaCupier1;
-            campoPuntajeCupier.setText(puntajeCupier + "");
-            campoApuesta.setText(0 + "");
             botonCarta4.setDisable(true);
             botonOtraCarta.setDisable(true);
             botonSeguro.setDisable(true);
@@ -225,11 +216,10 @@ public class JuegoVistaController implements Initializable {
     }
 
     @FXML
-    private void otraCarta() { //BOTON POR DEBAJO
+    private void otraCarta() {
 
         //CUARTA CARTA     
         imagenJugador4 = paquete.barajar(); //3C.Png
-        System.out.println("CUARTA CARTA" + imagenJugador4);
         valorActualCarta4 = paquete.getCartaActual();
         carta1 = new Image(imagenJugador4);
         if (valorActualCarta4 == 1) { //VALIDACION SI SALE UN AS
@@ -252,27 +242,16 @@ public class JuegoVistaController implements Initializable {
             campoEfectivo.setText(dinero + "");
         }
         if (puntaje > 21) {
+            seguro();
             campoMensajeGanadorOperdedor.setText(mensajePerdedor);
-            //Cambia la carta tapada del cupier a tener valor
-            imagenCupier = paquete.barajar();
-            valorActualCartaCupier1 = paquete.getCartaActual();
-            cartaCupier = new Image(imagenCupier);
-            campoImagenCupier.setImage(cartaCupier);
-
-            //Suma
-            puntajeCupier += valorActualCartaCupier1;
-            campoPuntajeCupier.setText(puntajeCupier + "");
-            System.out.println("Puntaje Cupier" + puntajeCupier);
-            campoApuesta.setText(0 + "");
-            //Deshabilitar Boton
             botonCarta4.setDisable(true);
             botonOtraCarta.setDisable(true);
             botonSeguro.setDisable(true);
 
         }
         if(campoImagenJugador.isVisible() && campoImagenJugador2.isVisible() && campoImagenJugador3.isVisible() && campoImagenJugador4.isVisible()){
-            seguro();
-            botonSeguro.setDisable(true);
+            //seguro();
+            //botonSeguro.setDisable(true);
         }
         botonOtraCarta.setDisable(true);
 
@@ -281,33 +260,28 @@ public class JuegoVistaController implements Initializable {
     @FXML
     private void seguro() {
         imagenCupier = paquete.barajar();
-        //System.out.println("Carta Primera Cupier: " + imagenCupier);
         valorActualCartaCupier1 = paquete.getCartaActual();
-        System.out.println("Valor carta 1: "+valorActualCartaCupier1);
+        System.out.println("Carta 1: " + valorActualCartaCupier1);
         cartaCupier = new Image(imagenCupier);
         campoImagenCupier.setImage(cartaCupier);
         puntajeCupier += valorActualCartaCupier1;
-        System.out.println("Carta 1:"+ puntajeCupier);
         campoPuntajeCupier.setText(puntajeCupier + "");
         if (puntajeCupier < 16) {
             imagenCupier3 = paquete.barajar();
             valorActualCartaCupier3 = paquete.getCartaActual();
-            System.out.println("Valor carta 3: "+valorActualCartaCupier3);
+            System.out.println("Carta 3: " + valorActualCartaCupier3);
             cartaCupier = new Image(imagenCupier3);
             campoImagenCupier3.setImage(cartaCupier);
             puntajeCupier += valorActualCartaCupier3;
-            System.out.println("Carta 3: " + puntajeCupier);
             campoPuntajeCupier.setText(puntajeCupier + "");
 
             if (puntajeCupier < 16) {
                 imagenCupier4 = paquete.barajar();
-                //System.out.println("Carta Primera Cupier: " + imagenCupier4);
                 valorActualCartaCupier4 = paquete.getCartaActual();
-                System.out.println("Valor carta 4: "+valorActualCartaCupier4);
-                cartaCupier = new Image(imagenCupier3);
+                System.out.println("Carta 4: " + valorActualCartaCupier4);
+                cartaCupier = new Image(imagenCupier4);
                 campoImagenCupier4.setImage(cartaCupier);
                 puntajeCupier += valorActualCartaCupier4;
-                System.out.println("Carta 4:"+ puntajeCupier);
                 campoPuntajeCupier.setText(puntajeCupier + "");
             }
 
@@ -315,24 +289,29 @@ public class JuegoVistaController implements Initializable {
         if (puntajeCupier > 21) {
             campoMensajeGanadorOperdedor.setText(mensajeGanador);
             botonOtraCarta.setDisable(true);
+            botonCarta4.setDisable(true);
             botonSeguro.setDisable(true);
         }
         if (puntajeCupier == 21) {
             campoMensajeGanadorOperdedor.setText(mensajePerdedor);
             botonOtraCarta.setDisable(true);
+            botonCarta4.setDisable(true);
             botonSeguro.setDisable(true);
         }
         if ((puntajeCupier > puntaje) && (puntajeCupier < 21)) {
             campoMensajeGanadorOperdedor.setText(mensajePerdedor);
             botonOtraCarta.setDisable(true);
+            botonCarta4.setDisable(true);
             botonSeguro.setDisable(true);
         } else if (puntajeCupier == puntaje) {
             campoMensajeGanadorOperdedor.setText("Es un empate");
             botonOtraCarta.setDisable(true);
+            botonCarta4.setDisable(true);
             botonSeguro.setDisable(true);
         } else {
             campoMensajeGanadorOperdedor.setText(mensajeGanador);
             botonOtraCarta.setDisable(true);
+            botonCarta4.setDisable(true);
             botonSeguro.setDisable(true);
         }
     }
@@ -372,12 +351,6 @@ public class JuegoVistaController implements Initializable {
         campoApuesta.setText(0 + "");
         campoPuntajeJugador.setText(0 + "");
         campoPuntajeCupier.setText(0 + "");
-        System.out.println(resultado);
-    }
-
-    private int quitarDinero(int dinero, int suma) {
-        int resultado = dinero - suma;
-        return resultado;
     }
 
     @FXML
@@ -389,11 +362,11 @@ public class JuegoVistaController implements Initializable {
         if (dinero > 0) {
             campoApuesta.setText(suma + "");
             this.resultado = dinero - ficha.getFicha1();
-            System.out.println(dinero);
             campoEfectivo.setText(resultado + "");
         } else {
             campoEfectivo.setText("0");
             JOptionPane.showMessageDialog(null, "No puede Apostar mas", "ERROR", JOptionPane.ERROR_MESSAGE);
+            //botonRepartir.setDisable(true);
         }
     }
 
@@ -406,7 +379,6 @@ public class JuegoVistaController implements Initializable {
         if (dinero > 0) {
             campoApuesta.setText(suma + "");
             this.resultado = dinero - ficha.getFicha5();
-            System.out.println(dinero);
             campoEfectivo.setText(resultado + "");
         } else {
             campoEfectivo.setText("0");
@@ -423,7 +395,6 @@ public class JuegoVistaController implements Initializable {
         if (dinero > 0) {
             campoApuesta.setText(suma + "");
             this.resultado = dinero - ficha.getFicha10();
-            System.out.println(dinero);
             campoEfectivo.setText(resultado + "");
         } else {
             campoEfectivo.setText("0");
@@ -440,7 +411,6 @@ public class JuegoVistaController implements Initializable {
         if (dinero > 0) {
             campoApuesta.setText(suma + "");
             this.resultado = dinero - ficha.getFicha25();
-            System.out.println(dinero);
             campoEfectivo.setText(resultado + "");
         } else {
             campoEfectivo.setText("0");
@@ -457,7 +427,6 @@ public class JuegoVistaController implements Initializable {
         if (dinero > 0) {
             campoApuesta.setText(suma + "");
             this.resultado = dinero - ficha.getFicha50();
-            System.out.println(dinero);
             campoEfectivo.setText(resultado + "");
         } else {
             campoEfectivo.setText("0");
@@ -475,7 +444,6 @@ public class JuegoVistaController implements Initializable {
         if (dinero > 0) {
             campoApuesta.setText(suma + "");
             this.resultado = dinero - ficha.getFicha100();
-            System.out.println(dinero);
             campoEfectivo.setText(resultado + "");
         } else {
             campoEfectivo.setText("0");
@@ -483,6 +451,73 @@ public class JuegoVistaController implements Initializable {
         }
     }
 
+    private void asignarCartasAJugadorYCupier() {
+
+        //imagenJugador = "/Imagenes Cartas/10P.png";  
+        valorActualCarta1 = 10;
+        
+        //Se agrega la primera carta al jugador
+        imagenJugador = paquete.barajar();
+        valorActualCarta1 = paquete.getCartaActual(); 
+        carta1 = new Image(imagenJugador);
+        campoImagenJugador.setImage(carta1);
+
+        //Se agrega la segunda carta al Cupier
+        imagenCupier2 = paquete.barajar();
+        valorActualCartaCupier2 = paquete.getCartaActual(); 
+        System.out.println("Carta 2: " + valorActualCartaCupier2);
+        puntajeCupier = valorActualCartaCupier2;
+        cartaCupier = new Image(imagenCupier2);
+        campoImagenCupier2.setImage(cartaCupier);
+        campoPuntajeCupier.setText(valorActualCartaCupier2 + "");
+
+        
+        //imagenJugador = "/Imagenes Cartas/10P.png"; CARTA VALOR 10
+        //imagenJugador2 = "/Imagenes Cartas/1P.png";
+        //valorActualCarta2 = 1;
+
+        //Se agrega la tercera carta al Jugador
+        imagenJugador2 = paquete.barajar();
+        valorActualCarta2 = paquete.getCartaActual();
+        
+        //VALIDACION PARA AHCER BLACK JACK CON DOS CARTAa
+        if(valorActualCarta1==1 && valorActualCarta2==10){
+            seguro(); //******************************************************************************** por si depronto afecta puntaje cupier
+            valorActualCarta1=11;
+            botonOtraCarta.setDisable(true); //Boton
+            botonCarta4.setDisable(true);
+            botonSeguro.setDisable(true);
+            campoMensajeGanadorOperdedor.setText(mensajeGanador);
+            int Apuesta = Integer.parseInt(campoApuesta.getText());
+            int dinero = Integer.parseInt(campoEfectivo.getText());
+            this.resultado = Apuesta * 2;
+            dinero += resultado;
+            campoEfectivo.setText(dinero + "");
+        }if(valorActualCarta1==10 && valorActualCarta2==1){
+            seguro(); //******************************************************************************** por si depronto afecta puntaje cupier
+            valorActualCarta2=11;
+            botonOtraCarta.setDisable(true); //Boton
+            botonCarta4.setDisable(true);
+            botonSeguro.setDisable(true);
+            campoMensajeGanadorOperdedor.setText(mensajeGanador);
+            int Apuesta = Integer.parseInt(campoApuesta.getText());
+            int dinero = Integer.parseInt(campoEfectivo.getText());
+            this.resultado = Apuesta * 2;
+            dinero += resultado;
+            campoEfectivo.setText(dinero + "");
+        }
+            
+        carta1 = new Image(imagenJugador2);
+        campoImagenJugador2.setImage(carta1);
+
+        
+        //Suma De las dos cartas Jugador
+        puntaje = valorActualCarta1 + valorActualCarta2;
+        campoPuntajeJugador.setText(puntaje + "");
+               
+        
+    }
+    
     @FXML
     private void salirDelJuego() {
         System.exit(0);
@@ -495,35 +530,6 @@ public class JuegoVistaController implements Initializable {
                 + "Sebastian Cifuentes Florez" + "\n"
                 + "Emanuel Benjumea Bejarano", "Quienes somos", JOptionPane.INFORMATION_MESSAGE);
 
-    }
-
-    private void asignarCartasAJugadorYCupier() {
-
-        //Se agrega la primera carta al jugador
-        imagenJugador = paquete.barajar();
-        valorActualCarta1 = paquete.getCartaActual(); //Se obtiene el valor de la carta
-        carta1 = new Image(imagenJugador);
-        campoImagenJugador.setImage(carta1);
-
-        //Se agrega la segunda carta al Cupier
-        imagenCupier2 = paquete.barajar();
-        valorActualCartaCupier2 = paquete.getCartaActual(); //Se obtiene el valor de la carta
-        System.out.println("Valor carta 2: "+valorActualCartaCupier2);
-        puntajeCupier = valorActualCartaCupier2;
-        System.out.println("Carta 2: " + puntajeCupier);
-        cartaCupier = new Image(imagenCupier2);
-        campoImagenCupier2.setImage(cartaCupier);
-        campoPuntajeCupier.setText(valorActualCartaCupier2 + "");
-
-        //Se agrega la tercera carta al Jugador
-        imagenJugador2 = paquete.barajar();
-        valorActualCarta2 = paquete.getCartaActual();
-        carta1 = new Image(imagenJugador2);
-        campoImagenJugador2.setImage(carta1);
-
-        //Suma De las dos cartas
-        puntaje = valorActualCarta1 + valorActualCarta2;
-        campoPuntajeJugador.setText(puntaje + "");
     }
 
 }

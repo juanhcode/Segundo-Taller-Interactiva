@@ -83,7 +83,7 @@ public class PaqueteDeCartas {
         }
         return cartaActual;
     }
-
+    
     public Carta[] getPaquete() {
         return paquete;
     }
