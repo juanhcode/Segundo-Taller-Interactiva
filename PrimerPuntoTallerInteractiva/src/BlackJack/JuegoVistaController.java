@@ -481,9 +481,7 @@ public class JuegoVistaController implements Initializable {
         //Se agrega la primera carta al jugador
         imagenJugador = paquete.barajar();
         valorActualCarta1 = paquete.getCartaActual();
-        if (valorActualCarta1 == 1) { //VALIDACION SI SALE UN AS
-            valorActualCarta1 = paquete.valorAs();
-        }
+        
         carta1 = new Image(imagenJugador);
         campoImagenJugador.setImage(carta1);
 
@@ -502,9 +500,7 @@ public class JuegoVistaController implements Initializable {
         imagenJugador2 = paquete.barajar();
         valorActualCarta2 = paquete.getCartaActual();
 
-        if (valorActualCarta2 == 1) { //VALIDACION SI SALE UN AS
-            valorActualCarta2 = paquete.valorAs();
-        }
+        
 
         //VALIDACION PARA HACER BLACK JACK CON DOS CARTAS
         if (valorActualCarta1 == 1 && valorActualCarta2 == 10) {
@@ -532,6 +528,12 @@ public class JuegoVistaController implements Initializable {
             this.resultado = Apuesta * 2;
             dinero += resultado;
             campoEfectivo.setText(dinero + "");
+        }
+        if (valorActualCarta1 == 1) { //VALIDACION SI SALE UN AS
+            valorActualCarta1 = paquete.valorAs();
+        }
+        if (valorActualCarta2 == 1) { //VALIDACION SI SALE UN AS
+            valorActualCarta2 = paquete.valorAs();
         }
 
         carta1 = new Image(imagenJugador2);
