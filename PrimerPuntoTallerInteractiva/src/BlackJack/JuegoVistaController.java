@@ -295,28 +295,33 @@ public class JuegoVistaController implements Initializable {
             botonOtraCarta.setDisable(true);
             botonCarta4.setDisable(true);
             botonSeguro.setDisable(true);
+            botonOtroJuego.setDisable(false);
         }
         if (puntajeCupier == 21) {
             campoMensajeGanadorOperdedor.setText(mensajePerdedor);
             botonOtraCarta.setDisable(true);
             botonCarta4.setDisable(true);
             botonSeguro.setDisable(true);
+            botonOtroJuego.setDisable(false);
         }
         if ((puntajeCupier > puntaje) && (puntajeCupier < 21)) {
             campoMensajeGanadorOperdedor.setText(mensajePerdedor);
             botonOtraCarta.setDisable(true);
             botonCarta4.setDisable(true);
             botonSeguro.setDisable(true);
+            botonOtroJuego.setDisable(false);
         } else if (puntajeCupier == puntaje) {
             campoMensajeGanadorOperdedor.setText("Es un empate");
             botonOtraCarta.setDisable(true);
             botonCarta4.setDisable(true);
             botonSeguro.setDisable(true);
+            botonOtroJuego.setDisable(false);
         } else {
             campoMensajeGanadorOperdedor.setText(mensajeGanador);
             botonOtraCarta.setDisable(true);
             botonCarta4.setDisable(true);
             botonSeguro.setDisable(true);
+            botonOtroJuego.setDisable(false);
         }
     }
 
