@@ -490,7 +490,6 @@ public class JuegoVistaController implements Initializable {
         //Se agrega la segunda carta al Cupier
         imagenCupier2 = paquete.barajar();
         valorActualCartaCupier2 = paquete.getCartaActual();
-        //  System.out.println("Carta 2: " + valorActualCartaCupier2);
         puntajeCupier = valorActualCartaCupier2;
         cartaCupier = new Image(imagenCupier2);
         campoImagenCupier2.setImage(cartaCupier);
@@ -507,9 +506,9 @@ public class JuegoVistaController implements Initializable {
             valorActualCarta2 = paquete.valorAs();
         }
 
-        //VALIDACION PARA AHCER BLACK JACK CON DOS CARTAa
+        //VALIDACION PARA HACER BLACK JACK CON DOS CARTAS
         if (valorActualCarta1 == 1 && valorActualCarta2 == 10) {
-            seguro(); //******************************************************************************** por si depronto afecta puntaje cupier
+            seguro();
             valorActualCarta1 = 11;
             botonOtraCarta.setDisable(true); //Boton
             botonCarta4.setDisable(true);
@@ -522,7 +521,7 @@ public class JuegoVistaController implements Initializable {
             campoEfectivo.setText(dinero + "");
         }
         if (valorActualCarta1 == 10 && valorActualCarta2 == 1) {
-            seguro(); //******************************************************************************** por si depronto afecta puntaje cupier
+            seguro();
             valorActualCarta2 = 11;
             botonOtraCarta.setDisable(true); //Boton
             botonCarta4.setDisable(true);
