@@ -375,7 +375,7 @@ public class JuegoVistaController implements Initializable {
         } else {
             campoEfectivo.setText("0");
             JOptionPane.showMessageDialog(null, "No puede Apostar mas", "ERROR", JOptionPane.ERROR_MESSAGE);
-            //botonRepartir.setDisable(true);
+            botonRepartir.setDisable(true);
         }
     }
 
@@ -392,6 +392,7 @@ public class JuegoVistaController implements Initializable {
         } else {
             campoEfectivo.setText("0");
             JOptionPane.showMessageDialog(null, "No puede Apostar mas", "ERROR", JOptionPane.ERROR_MESSAGE);
+            botonRepartir.setDisable(true);
         }
     }
 
@@ -408,6 +409,7 @@ public class JuegoVistaController implements Initializable {
         } else {
             campoEfectivo.setText("0");
             JOptionPane.showMessageDialog(null, "No puede Apostar mas", "ERROR", JOptionPane.ERROR_MESSAGE);
+            botonRepartir.setDisable(true);
         }
     }
 
@@ -424,6 +426,7 @@ public class JuegoVistaController implements Initializable {
         } else {
             campoEfectivo.setText("0");
             JOptionPane.showMessageDialog(null, "No puede Apostar mas", "ERROR", JOptionPane.ERROR_MESSAGE);
+            botonRepartir.setDisable(true);
         }
     }
 
@@ -440,6 +443,7 @@ public class JuegoVistaController implements Initializable {
         } else {
             campoEfectivo.setText("0");
             JOptionPane.showMessageDialog(null, "No puede Apostar mas", "ERROR", JOptionPane.ERROR_MESSAGE);
+            botonRepartir.setDisable(true);
         }
 
     }
@@ -457,6 +461,7 @@ public class JuegoVistaController implements Initializable {
         } else {
             campoEfectivo.setText("0");
             JOptionPane.showMessageDialog(null, "No puede Apostar mas", "ERROR", JOptionPane.ERROR_MESSAGE);
+            botonRepartir.setDisable(true);
         }
     }
 
