@@ -195,6 +195,7 @@ public class JuegoVistaController implements Initializable {
 
         //VALIDACIONES
         if (puntaje == 21) {
+            seguro(); //////////////////////////
             botonOtraCarta.setDisable(true);
             botonCarta4.setDisable(true);
             botonSeguro.setDisable(true);
@@ -253,10 +254,6 @@ public class JuegoVistaController implements Initializable {
             botonOtroJuego.setDisable(false);
 
         }
-        if (campoImagenJugador.isVisible() && campoImagenJugador2.isVisible() && campoImagenJugador3.isVisible() && campoImagenJugador4.isVisible()) {
-            //seguro();
-            //botonSeguro.setDisable(true);
-        }
         botonOtraCarta.setDisable(true);
 
     }
@@ -287,11 +284,17 @@ public class JuegoVistaController implements Initializable {
                 campoImagenCupier4.setImage(cartaCupier);
                 puntajeCupier += valorActualCartaCupier4;
                 campoPuntajeCupier.setText(puntajeCupier + "");
+                
             }
 
         }
         if (puntajeCupier > 21) {
             campoMensajeGanadorOperdedor.setText(mensajeGanador);
+            int Apuesta = Integer.parseInt(campoApuesta.getText());
+            int dinero = Integer.parseInt(campoEfectivo.getText());
+            this.resultado = Apuesta * 2;
+            dinero += resultado;
+            campoEfectivo.setText(dinero + "");
             botonOtraCarta.setDisable(true);
             botonCarta4.setDisable(true);
             botonSeguro.setDisable(true);
@@ -312,11 +315,16 @@ public class JuegoVistaController implements Initializable {
             botonOtroJuego.setDisable(false);
         } else if (puntajeCupier == puntaje) {
             campoMensajeGanadorOperdedor.setText("Es un empate");
+            int Apuesta = Integer.parseInt(campoApuesta.getText());
+            int dinero = Integer.parseInt(campoEfectivo.getText());
+            this.resultado = Apuesta + dinero;
+            campoEfectivo.setText(resultado + "");
             botonOtraCarta.setDisable(true);
             botonCarta4.setDisable(true);
             botonSeguro.setDisable(true);
             botonOtroJuego.setDisable(false);
-        } else {
+        }
+        else {
             campoMensajeGanadorOperdedor.setText(mensajeGanador);
             botonOtraCarta.setDisable(true);
             botonCarta4.setDisable(true);
@@ -467,8 +475,9 @@ public class JuegoVistaController implements Initializable {
 
     private void asignarCartasAJugadorYCupier() {
 
-        //imagenJugador = "/Imagenes Cartas/10P.png";  
-        //valorActualCarta1 = 10;
+        //imagenJugador = "/Imagenes Cartas/1P.png";  
+        //valorActualCarta1 = 1;
+        
         //Se agrega la primera carta al jugador
         imagenJugador = paquete.barajar();
         valorActualCarta1 = paquete.getCartaActual();
@@ -488,8 +497,8 @@ public class JuegoVistaController implements Initializable {
         campoPuntajeCupier.setText(valorActualCartaCupier2 + "");
 
         //imagenJugador = "/Imagenes Cartas/10P.png"; CARTA VALOR 10
-        //imagenJugador2 = "/Imagenes Cartas/1P.png";
-        //valorActualCarta2 = 1;
+        //imagenJugador2 = "/Imagenes Cartas/10P.png";
+        //valorActualCarta2 = 10;
         //Se agrega la tercera carta al Jugador
         imagenJugador2 = paquete.barajar();
         valorActualCarta2 = paquete.getCartaActual();
